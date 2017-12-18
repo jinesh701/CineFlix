@@ -4,7 +4,8 @@
   "description": "A web app for keeping track of film/television shows",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",

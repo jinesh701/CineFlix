@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: NXTh/BeUUWBSqV6xIaew9QNZBU7nBxnq9BOWy9XDOQs7DeI36rdZrPh1sYjMMjgkRkDWJtSuPxxhI2wsP2pqAPxHi+hAHdlKfsWq3DVWH1u4O3RRhhlQMY2p1WD+A/PkKaMlv/mDIAebBj7ePk9WCvRpPktP3OsY3SUIxN0ZxQ1tr8+0Nl6c/lj5DpQuYh/rarujaXWVY6WGcTg2OtBmmi4tbkyUWltTy1TamMYcvrMyXAP/XLniHpCqEtnFdOjZUkF/X79FybGZ/jHjlP4P1VxVmWEudOVizc3E0MCjUp1m4OjSJ+Zs8ZrSiW77JzoCsitKz1BkeVnDB1Ja/9MrbvOoOoM7Dbyqr/LatDa/n7ERi8AkAKKx9a9ZrZri7MZs2PlQothKGwtakLzsqUOqZkuPctkb6J/q+sDyb06r0X6D6twnJzTRFQ19vH/dq5AGAEuXRKNynAovw52jA4ucaS0mTZV7nyGMaKRQTCImT5OIVMlbSavUig1LNY8z4Ye6+c15k5rN02s8Gj8FP7lqurwBylkvLcY2IDoGV7tyDo2hW+2i5nHOkSkhK4rMTRW/mgQfw7NHZsn9FNNX47g9RB+1pqt8NtS+MafhdSxyXe0aDkdHXqfofPZgQ0QTUhayWbebB6cuDrsIlyqkmLGodixb0sdWgt/JR8hHigCQJSk=
+  app: murmuring-mountain-83480
+  on:
+    repo: jinesh701/CineFlix

@@ -1,14 +1,18 @@
 {
   "name": "cineflix",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web app for keeping track of film/television shows",
   "main": "server.js",
   "dependencies": {
     "express": "^4.16.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --exit",
     "start": "node server.js"
   },
   "author": "",

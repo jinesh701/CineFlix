@@ -54,3 +54,60 @@ function getAndDisplayMovieData() {
 $(function() {
   getAndDisplayMovieData();
 });
+
+var MOCK_TV_DATA = {
+  tvData: [
+    {
+      id: 111111,
+      poster: "/tv1.jpg",
+      overview:
+        "TV description - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at",
+      title: "TV Title - 1",
+      release_date: "2007-1-1"
+    },
+    {
+      id: 222222,
+      poster: "/tv2.jpg",
+      overview:
+        "TV description - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at",
+      title: "TV Title - 2",
+      release_date: "2007-2-2"
+    },
+    {
+      id: 333333,
+      poster: "/tv3.jpg",
+      overview:
+        "TV description - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at",
+      title: "TV Title - 3",
+      release_date: "2007-3-3"
+    },
+    {
+      id: 444444,
+      poster: "/tv4.jpg",
+      overview:
+        "TV description - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at",
+      title: "TV Title - 4",
+      release_date: "2007-4-4"
+    }
+  ]
+};
+
+function getTvData(callbackFn) {
+  setTimeout(function() {
+    callbackFn(MOCK_TV_DATA);
+  }, 100);
+}
+
+function displayTvData(data) {
+  for (index in data.tvData) {
+    $("body").append(`<p>${data.tvData[index].title}</p>`);
+  }
+}
+
+function getAndDisplayTvData() {
+  getTvData(displayTvData);
+}
+
+$(function() {
+  getAndDisplayTvData();
+});

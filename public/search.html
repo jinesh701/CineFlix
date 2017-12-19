@@ -12,20 +12,41 @@
 <body>
     <header role="banner">
         <div class="row">
-            <div class="col-3">
+            <div class="col-4">
                 <a href="/">
                     <h1>CineFlix</h1>
                 </a>
             </div>
-            <div class="col-3">
-                <a href="/search">Search</a>
-                <a href="/watchlist">Watchlist</a>
-                <a href="/watched">Watched</a>
+            <div class="col-6">
+                <ul class="page-links">
+                    <li class="li-page-link">
+                        <a href="/watchlist">Watchlist</a>
+                    </li>
+                    <li class="li-page-link">
+                        <a href="/watched">Watched</a>
+                    </li>
+                    <li class="li-page-link">
+                        <a href="/search">Search</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
 
-    <p>Search page</p>
+    <div class="row">
+        <div class="col-12 search-form">
+            <form action="#" class="js-search-form" aria-label="search-form">
+                <input type="text" class="js-user-input" placeholder="Search for a movie or show" aria-label="search-movie-or-tv-show-input"
+                    required>
+                <button type="submit" class="js-search-btn">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <main role="main">
+        <div class="js-search-results"></div>
+    </main>
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

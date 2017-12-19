@@ -1,0 +1,35 @@
+.page-links {
+  list-style-type: none;
+  float: right;
+  margin-top: 30px;
+}
+
+.li-page-link {
+  display: inline;
+  padding-left: 10px;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.js-user-input {
+  font-size: 14px;
+  padding-right: 10px;
+}
+
+.movie-name {
+  text-align: center;
+}
+
+.movie-release-date {
+  text-align: center;
+}
+
+.movie-description {
+  text-align: center;
+}
+
+.watchlist-btn {
+  margin-top: 50px;
+}

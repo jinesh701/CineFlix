@@ -9,6 +9,33 @@
   padding-left: 10px;
 }
 
+.register {
+  text-align: center;
+}
+
+.register-labels {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.register-width {
+  width: 250px;
+  margin-top: 10px;
+}
+
+.register-submit {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.center-block {
+  text-align: center;
+}
+
+.login {
+  text-align: center;
+}
+
 .search-form {
   text-align: center;
 }

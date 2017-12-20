@@ -28,6 +28,14 @@ app.get("/watched", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/watched.html"));
 });
 
+app.get("/registration", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/registration.html"));
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/login.html"));
+});
+
 let server;
 
 function runServer(databaseUrl = DATABASE_URL, port = PORT) {

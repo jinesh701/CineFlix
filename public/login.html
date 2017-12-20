@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <link href="float-grid.css" rel="stylesheet">
+</head>
+
+<body>
+    <header role="banner">
+        <div class="row">
+            <div class="col-4">
+                <a href="/">
+                    <h1>CineFlix</h1>
+                </a>
+            </div>
+            <div class="col-6">
+                <ul class="page-links">
+                    <li class="li-page-link">
+                        <a href="/registration">Register</a>
+                    </li>
+                    <li class="li-page-link">
+                        <a href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="row">
+        <h1 class="login">Login</h1>
+
+        <form>
+            <label for="username" class="register-labels col-12">Username</label>
+            <div class="col-12 center-block">
+                <input type="text" id="username" class="register-width" placeholder="Username" required>
+            </div>
+            <label for="password" class="register-labels col-12">Password</label>
+            <div class="col-12 center-block">
+                <input type="password" id="password" class="register-width" placeholder="Password" required>
+            </div>
+            <div class="row">
+                <div class="col-12 register-submit">
+                    <input type=submit>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</body>
+
+</html>

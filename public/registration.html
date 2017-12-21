@@ -30,25 +30,26 @@
         </div>
     </header>
 
-    <div class="row">
+    <div class="row registration-div">
         <h1 class="register">Register</h1>
 
         <form>
-            <label for="first-name" class="register-labels col-12">First Name</label>
+            <label for="new-first-name" class="register-labels col-12">First Name</label>
             <div class="col-12 center-block">
-                <input type="text" id="first-name" class="register-width" placeholder="First name" required>
+                <input type="text" id="new-first-name" class="register-width" placeholder="First name" required>
             </div>
-            <label for="username" class="register-labels col-12">Username</label>
+            <label for="new-username" class="register-labels col-12">Username</label>
             <div class="col-12 center-block">
-                <input type="text" id="username" class="register-width" placeholder="Username" required>
+                <input type="text" id="new-username" class="register-width" placeholder="Username" required>
             </div>
-            <label for="password" class="register-labels col-12">Password</label>
+            <label for="new-password" class="register-labels col-12">Password</label>
             <div class="col-12 center-block">
-                <input type="password" id="password" class="register-width" placeholder="Password" required>
+                <input type="password" id="new-password" class="register-width" placeholder="Password" required>
             </div>
-            <label for="confirm-password" class="register-labels col-12">Confirm Password</label>
+            <label for="new-confirm-password" class="register-labels col-12">Confirm Password</label>
             <div class="col-12 center-block">
-                <input type="password" id="confirm-password" class="register-width" placeholder="Confirm password" required>
+                <input type="password" id="new-confirm-password" class="register-width" placeholder="Confirm password" required>
+                <p class="password-no-match">Passwords do not match. Please try again.</p>
             </div>
             <div class="row">
                 <div class="col-12 register-submit">
@@ -58,7 +59,14 @@
         </form>
     </div>
 
+    <div class="row">
+        <div class="col-12 registered">
+
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="api.js"></script>
     <script src="registration.js"></script>
 
 </body>

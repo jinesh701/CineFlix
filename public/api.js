@@ -65,10 +65,6 @@ function getAndDisplayMovieData() {
   getMovieData(displayMovieData);
 }
 
-$(function() {
-  getAndDisplayMovieData();
-});
-
 var MOCK_TV_DATA = {
   tvData: [
     {
@@ -122,6 +118,52 @@ function getAndDisplayTvData() {
   getTvData(displayTvData);
 }
 
-$(function() {
+function registerUser() {
+  var registerFirstName = $("#new-first-name").val();
+  registerFirstName =
+    registerFirstName.charAt(0).toUpperCase() +
+    registerFirstName.slice(1).toLowerCase();
+  $("#new-first-name").val(registerFirstName);
+  var registerUser = $("#new-username").val();
+  var registerPassword = $("#new-password").val();
+  var registerConfirmPassword = $("#new-confirm-password").val();
+
+  if (registerPassword !== registerConfirmPassword) {
+    $(".password-no-match").show();
+    return;
+  }
+
+  var newUser = JSON.stringify({
+    firstName: registerFirstName,
+    username: registerUser,
+    password: registerPassword
+  });
+
+  localStorage.setItem("users", newUser);
+  const userInfo = localStorage.getItem("users");
+  const getUsers = JSON.parse(userInfo);
+  $(".registration-div").hide();
+  $(".registered").html(`<p>Congrats you have registered</p>`);
+}
+
+function userLogin() {
+  var username = $("#username").val();
+  var password = $("#password").val();
+  userInfo = localStorage.getItem("users");
+  var getUsers = JSON.parse(userInfo);
+  storedUser = [getUsers];
+
+  storedUser.forEach(user => {
+    if (username === user.username && password === user.password) {
+      window.location.href = "/profile";
+      return;
+    }
+    document.getElementById("incorrect-info").innerHTML =
+      "Incorrect username or password. Please try again.";
+  });
+}
+
+/*$(function() {
+  getAndDisplayMovieData();
   getAndDisplayTvData();
-});
+});*/

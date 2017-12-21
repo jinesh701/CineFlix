@@ -28,6 +28,10 @@
   margin-top: 10px;
 }
 
+.password-no-match {
+  display: none;
+}
+
 .center-block {
   text-align: center;
 }

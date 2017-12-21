@@ -36,6 +36,10 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/login.html"));
 });
 
+app.get("/profile", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/profile.html"));
+});
+
 let server;
 
 function runServer(databaseUrl = DATABASE_URL, port = PORT) {

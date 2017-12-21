@@ -13,7 +13,7 @@
     <header role="banner">
         <div class="row">
             <div class="col-4">
-                <a href="/">
+                <a href="/profile">
                     <h1>CineFlix</h1>
                 </a>
             </div>
@@ -27,6 +27,9 @@
                     </li>
                     <li class="li-page-link">
                         <a href="/search">Search</a>
+                    </li>
+                    <li class="li-page-link">
+                        <a href="/" onclick="deleteCookie()" id="log-out">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -50,6 +53,6 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="app.js" type="text/javascript"></script>
+<script src="api.js" type="text/javascript"></script>
 
 </html>

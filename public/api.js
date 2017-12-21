@@ -139,28 +139,21 @@ function registerUser() {
     password: registerPassword
   });
 
-  localStorage.setItem("users", newUser);
-  const userInfo = localStorage.getItem("users");
+  localStorage.setItem("user", newUser);
+  const userInfo = localStorage.getItem("user");
   const getUsers = JSON.parse(userInfo);
   $(".registration-div").hide();
   $(".registered").html(`<p>Congrats you have registered</p>`);
 }
 
-function userLogin() {
-  var username = $("#username").val();
-  var password = $("#password").val();
-  userInfo = localStorage.getItem("users");
-  var getUsers = JSON.parse(userInfo);
-  storedUser = [getUsers];
+function userLoginData() {
+  userInfo = localStorage.getItem("user");
+  var getUser = JSON.parse(userInfo);
+  userLogin(getUser);
+}
 
-  storedUser.forEach(user => {
-    if (username === user.username && password === user.password) {
-      window.location.href = "/profile";
-      return;
-    }
-    document.getElementById("incorrect-info").innerHTML =
-      "Incorrect username or password. Please try again.";
-  });
+function deleteCookie() {
+  document.cookie = "token=";
 }
 
 /*$(function() {

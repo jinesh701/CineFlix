@@ -118,44 +118,6 @@ function getAndDisplayTvData() {
   getTvData(displayTvData);
 }
 
-function registerUser() {
-  var registerFirstName = $("#new-first-name").val();
-  registerFirstName =
-    registerFirstName.charAt(0).toUpperCase() +
-    registerFirstName.slice(1).toLowerCase();
-  $("#new-first-name").val(registerFirstName);
-  var registerUser = $("#new-username").val();
-  var registerPassword = $("#new-password").val();
-  var registerConfirmPassword = $("#new-confirm-password").val();
-
-  if (registerPassword !== registerConfirmPassword) {
-    $(".password-no-match").show();
-    return;
-  }
-
-  var newUser = JSON.stringify({
-    firstName: registerFirstName,
-    username: registerUser,
-    password: registerPassword
-  });
-
-  localStorage.setItem("user", newUser);
-  const userInfo = localStorage.getItem("user");
-  const getUsers = JSON.parse(userInfo);
-  $(".registration-div").hide();
-  $(".registered").html(`<p>Congrats you have registered</p>`);
-}
-
-function userLoginData() {
-  userInfo = localStorage.getItem("user");
-  var getUser = JSON.parse(userInfo);
-  userLogin(getUser);
-}
-
-function deleteCookie() {
-  document.cookie = "token=";
-}
-
 /*$(function() {
   getAndDisplayMovieData();
   getAndDisplayTvData();

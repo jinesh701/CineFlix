@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
 });
 
 //Profile page
-router.get("/profile/:username", ensureAuthenticated, (req, res) => {
-  res.render("profile", { username: req.params.username });
+router.get("/profile", ensureAuthenticated, (req, res) => {
+  res.render("profile", { title: req.params.username });
 });
 
 function ensureAuthenticated(req, res, next) {

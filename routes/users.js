@@ -109,7 +109,7 @@ router.post("/login", (req, res, next) => {
   let username = req.body.username;
   username = username.substr(0, 1).toUpperCase() + username.substr(1);
   passport.authenticate("local", {
-    successRedirect: "/profile/" + username,
+    successRedirect: "/profile/",
     failureRedirect: "/users/login",
     failureFlash: true
   })(req, res, next);

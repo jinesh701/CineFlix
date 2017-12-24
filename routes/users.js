@@ -2,6 +2,8 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 //Bring in User Model
 const User = require("../models/user");
@@ -50,7 +52,7 @@ router.post("/register", (req, res) => {
           if (err) {
             req.flash(
               "error_msg",
-              "Username already exists. Please try another."
+              `Username ${newUser.username} already exists. Please try another.`
             );
             res.redirect("/users/register");
           } else {
@@ -63,8 +65,56 @@ router.post("/register", (req, res) => {
   }
 });
 
+//Passport Local Strategy
+passport.use(
+  new LocalStrategy(function(username, password, done) {
+    //Match user
+    let query = { username: username };
+    User.findOne(query, (err, user) => {
+      if (err) throw err;
+      if (!user) {
+        return done(null, false, {
+          message: `Username: ${username} was not found`
+        });
+      }
+      //Match Password
+      bcrypt.compare(password, user.password, (err, isMatch) => {
+        if (err) throw err;
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, {
+            message: "Incorrect password. Please try again."
+          });
+        }
+      });
+    });
+  })
+);
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+//Login
 router.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
+});
+
+//Login process
+router.post("/login", (req, res, next) => {
+  const username = req.body.username;
+  passport.authenticate("local", {
+    successRedirect: "/profile/" + username,
+    failureRedirect: "/users/login",
+    failureFlash: true
+  })(req, res, next);
 });
 
 router.post("/authenticate", (req, res) => {

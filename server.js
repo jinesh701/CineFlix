@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const session = require("express-session");
 const cors = require("cors");
@@ -13,6 +14,8 @@ const hbs = require("express-handlebars");
 const expressValidator = require("express-validator");
 
 const { PORT, DATABASE_URL } = require("./config");
+const routes = require("./routes/index");
+const users = require("./routes/users");
 
 mongoose.Promise = global.Promise;
 
@@ -68,11 +71,16 @@ app.use(
   })
 );
 
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Connect flash
 app.use(flash());
 app.use(function(req, res, next) {
   res.locals.success = req.flash("success");
   res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
   next();
 });
 
@@ -80,9 +88,10 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//Cookie parser
+app.use(cookieParser());
+
 //Set routes
-const routes = require("./routes/index");
-const users = require("./routes/users");
 app.use("/", routes);
 app.use("/users", users);
 

@@ -22,6 +22,10 @@
 <div class="row">
     <div class="col-12 success">{{success}}</div>
 </div>
+{{/if}} {{#if error_msg}}
+<div class="row">
+    <div class="col-12 errors">{{error_msg}}</div>
+</div>
 {{/if}} {{#if error}}
 <div class="row">
     <div class="col-12 errors">{{error}}</div>

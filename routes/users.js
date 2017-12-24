@@ -122,8 +122,14 @@ router.get("/logout", (req, res) => {
   res.redirect("/users/login");
 });
 
-router.post("/authenticate", (req, res) => {
-  res.send("authenticate");
-});
+//Access control
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    req.flash("error_msg", "Please login to proceed");
+    res.redirect("/users/login");
+  }
+}
 
 module.exports = router;

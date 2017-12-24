@@ -8,8 +8,17 @@ router.get("/", (req, res) => {
 });
 
 //Profile page
-router.get("/profile/:username", (req, res) => {
+router.get("/profile/:username", ensureAuthenticated, (req, res) => {
   res.render("profile", { username: req.params.username });
 });
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    req.flash("error_msg", "Please login");
+    res.redirect("/users/login");
+  }
+}
 
 module.exports = router;

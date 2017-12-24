@@ -26,12 +26,16 @@
         {{/each}}
     </ul>
 </div>
+{{/if}} {{#if error_msg}}
+<div class="row">
+    <div class="col-12 errors">{{error_msg}}</div>
+</div>
 {{/if}}
 
 <div class="row registration-div">
     <h1 class="register">Register</h1>
 
-    <form method="POST" action="/users/register">
+    <form method="POST" action="/users/register" aria-label="registration" aria-live="assertive">
         <label for="first-name" class="register-labels col-12">First Name</label>
         <div class="col-12 center-block">
             <input type="text" name="firstName" id="first-name" class="register-width" placeholder="First name">
@@ -55,5 +59,3 @@
         </div>
     </form>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

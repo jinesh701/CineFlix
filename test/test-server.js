@@ -31,7 +31,7 @@ describe("CineFlix app", function() {
   it("search page should have status 200", function() {
     return chai
       .request(app)
-      .get("/search")
+      .get("/users/login")
       .then(function(res) {
         res.should.have.status(200);
       });
@@ -40,16 +40,7 @@ describe("CineFlix app", function() {
   it("watchlist page should have status 200", function() {
     return chai
       .request(app)
-      .get("/watchlist")
-      .then(function(res) {
-        res.should.have.status(200);
-      });
-  });
-
-  it("watched page should have status 200", function() {
-    return chai
-      .request(app)
-      .get("/watched")
+      .get("/users/register")
       .then(function(res) {
         res.should.have.status(200);
       });

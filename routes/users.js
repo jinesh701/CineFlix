@@ -45,7 +45,10 @@ router.post("/register", (req, res) => {
         newUser.password = hash;
         newUser.save(function(err) {
           if (err) {
-            req.flash("error_msg", "Username exists");
+            req.flash(
+              "error_msg",
+              "Username already exists. Please try another."
+            );
             res.redirect("/users/register");
           } else {
             req.flash("success", "You are now registered and can log in");

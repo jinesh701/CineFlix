@@ -28,7 +28,7 @@ describe("CineFlix app", function() {
       });
   });
 
-  it("search page should have status 200", function() {
+  it("login page should have status 200", function() {
     return chai
       .request(app)
       .get("/users/login")
@@ -37,7 +37,7 @@ describe("CineFlix app", function() {
       });
   });
 
-  it("watchlist page should have status 200", function() {
+  it("register page should have status 200", function() {
     return chai
       .request(app)
       .get("/users/register")

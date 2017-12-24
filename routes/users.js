@@ -42,6 +42,9 @@ router.post("/register", (req, res) => {
         if (err) {
           console.log(err);
         }
+        newUser.firstName =
+          newUser.firstName.substr(0, 1).toUpperCase() +
+          newUser.firstName.substr(1);
         newUser.password = hash;
         newUser.save(function(err) {
           if (err) {

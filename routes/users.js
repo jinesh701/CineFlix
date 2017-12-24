@@ -117,6 +117,13 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+//Logout process
+router.get("/logout", (req, res) => {
+  req.logout();
+  req.flash("success", "You are logged out");
+  res.redirect("/users/login");
+});
+
 router.post("/authenticate", (req, res) => {
   res.send("authenticate");
 });

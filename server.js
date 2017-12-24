@@ -1,7 +1,16 @@
+"use strict";
+require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const flash = require("connect-flash");
+const session = require("express-session");
+const cors = require("cors");
 const path = require("path");
+const passport = require("passport");
+const hbs = require("express-handlebars");
+const expressValidator = require("express-validator");
 
 const { PORT, DATABASE_URL } = require("./config");
 
@@ -9,36 +18,72 @@ mongoose.Promise = global.Promise;
 
 const app = express();
 
+//Set view engine
+app.engine(
+  "hbs",
+  hbs({
+    extname: "hbs",
+    defaultLayout: "layout",
+    layoutsDir: __dirname + "/views/layouts"
+  })
+);
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+
+//Logging
 app.use(morgan("common"));
+
+//Cors
+app.use(cors());
+
+//Set static folder
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+// Express Session
+app.use(
+  session({
+    secret: "ldalladlaflasaj",
+    saveUninitialized: true,
+    resave: true
+  })
+);
+
+//Express Validator
+app.use(
+  expressValidator({
+    errorFormatter: function(param, msg, value) {
+      let namespace = param.split("."),
+        root = namespace.shift(),
+        formParam = root;
+
+      while (namespace.length) {
+        formParam += "[" + namespace.shift() + "]";
+      }
+      return {
+        param: formParam,
+        msg: msg,
+        value: value
+      };
+    }
+  })
+);
+
+// Connect flash
+app.use(flash());
+app.use(function(req, res, next) {
+  res.locals.success = req.flash("success");
+  next();
 });
 
-app.get("/search", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/search.html"));
-});
+//Body parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/watchlist", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/watchlist.html"));
-});
-
-app.get("/watched", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/watched.html"));
-});
-
-app.get("/registration", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/registration.html"));
-});
-
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/login.html"));
-});
-
-app.get("/profile", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/profile.html"));
-});
+//Set routes
+const routes = require("./routes/index");
+const users = require("./routes/users");
+app.use("/", routes);
+app.use("/users", users);
 
 let server;
 

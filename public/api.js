@@ -118,7 +118,7 @@ function getAndDisplayTvData() {
   getTvData(displayTvData);
 }
 
-/*$(function() {
+$(document).ready(() => {
   getAndDisplayMovieData();
   getAndDisplayTvData();
-});*/
+});

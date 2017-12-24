@@ -15,12 +15,10 @@ router.get("/register", (req, res) => {
 
 //Register User
 router.post("/register", (req, res) => {
-  const firstName = req.body.firstName;
   const username = req.body.username;
   const password = req.body.password;
   const password2 = req.body.password2;
 
-  req.checkBody("firstName", "First name is required").notEmpty();
   req.checkBody("username", "Username is required").notEmpty();
   req.checkBody("password", "Password is required").notEmpty();
   req
@@ -35,24 +33,22 @@ router.post("/register", (req, res) => {
     });
   } else {
     let newUser = new User({
-      firstName: firstName,
       username: username,
       password: password
     });
+    newUser.username =
+      newUser.username.substr(0, 1).toUpperCase() + newUser.username.substr(1);
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(newUser.password, salt, function(err, hash) {
         if (err) {
           console.log(err);
         }
-        newUser.firstName =
-          newUser.firstName.substr(0, 1).toUpperCase() +
-          newUser.firstName.substr(1);
         newUser.password = hash;
         newUser.save(function(err) {
           if (err) {
             req.flash(
               "error_msg",
-              `Username ${newUser.username} already exists. Please try another.`
+              `Username already exists. Please try another.`
             );
             res.redirect("/users/register");
           } else {
@@ -69,12 +65,13 @@ router.post("/register", (req, res) => {
 passport.use(
   new LocalStrategy(function(username, password, done) {
     //Match user
+    username = username.substr(0, 1).toUpperCase() + username.substr(1);
     let query = { username: username };
     User.findOne(query, (err, user) => {
       if (err) throw err;
       if (!user) {
         return done(null, false, {
-          message: `Username: ${username} was not found`
+          message: `The username ${username} was not found.`
         });
       }
       //Match Password
@@ -109,7 +106,8 @@ router.get("/login", (req, res) => {
 
 //Login process
 router.post("/login", (req, res, next) => {
-  const username = req.body.username;
+  let username = req.body.username;
+  username = username.substr(0, 1).toUpperCase() + username.substr(1);
   passport.authenticate("local", {
     successRedirect: "/profile/" + username,
     failureRedirect: "/users/login",

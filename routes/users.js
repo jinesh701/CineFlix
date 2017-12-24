@@ -45,8 +45,8 @@ router.post("/register", (req, res) => {
         newUser.password = hash;
         newUser.save(function(err) {
           if (err) {
-            console.log(err);
-            return;
+            req.flash("error_msg", "Username exists");
+            res.redirect("/users/register");
           } else {
             req.flash("success", "You are now registered and can log in");
             res.redirect("/users/login");
@@ -63,10 +63,6 @@ router.get("/login", (req, res) => {
 
 router.post("/authenticate", (req, res) => {
   res.send("authenticate");
-});
-
-router.get("/profile/:username", (req, res) => {
-  res.render("profile", { username: req.params.username });
 });
 
 module.exports = router;

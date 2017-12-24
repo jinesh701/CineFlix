@@ -1,0 +1,61 @@
+<header role="banner">
+    <div class="row">
+        <div class="col-4">
+            <a href="/">
+                <h1>CineFlix</h1>
+            </a>
+        </div>
+        <div class="col-6">
+            <ul class="page-links">
+                <li class="li-page-link">
+                    <a href="/users/register">Register</a>
+                </li>
+                <li class="li-page-link">
+                    <a href="/users/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+{{#if errors}}
+<div class="row">
+    <ul>
+        {{#each errors}}
+        <p class="errors">{{msg}}</p>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
+
+<div class="row registration-div">
+    <h1 class="register">Register</h1>
+
+    <form method="POST" action="/users/register">
+        <label for="first-name" class="register-labels col-12">First Name</label>
+        <div class="col-12 center-block">
+            <input type="text" name="firstName" id="first-name" class="register-width" placeholder="First name">
+        </div>
+        <label for="username" class="register-labels col-12">Username</label>
+        <div class="col-12 center-block">
+            <input type="text" name="username" id="username" class="register-width" placeholder="Username">
+        </div>
+        <label for="password" class="register-labels col-12">Password</label>
+        <div class="col-12 center-block">
+            <input type="password" name="password" id="password" class="register-width" placeholder="Password">
+        </div>
+        <label for="password2" class="register-labels col-12">Confirm Password</label>
+        <div class="col-12 center-block">
+            <input type="password" name="password2" id="password2" class="register-width" placeholder="Confirm password">
+        </div>
+        <div class="row">
+            <div class="col-12 register-submit">
+                <input type=submit>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../api.js"></script>
+<script src="../register.js"></script>

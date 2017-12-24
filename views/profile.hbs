@@ -1,0 +1,31 @@
+<header role="banner">
+    <div class="row">
+        <div class="col-4">
+            <a href="/profile">
+                <h1>CineFlix</h1>
+            </a>
+        </div>
+        <div class="col-6">
+            <ul class="page-links">
+                <li class="li-page-link">
+                    <a href="/watchlist">Watchlist</a>
+                </li>
+                <li class="li-page-link">
+                    <a href="/watched">Watched</a>
+                </li>
+                <li class="li-page-link">
+                    <a href="/search">Search</a>
+                </li>
+                <li class="li-page-link">
+                    <a href="/" onclick="deleteCookie()" id="log-out">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<h1 class="user-welcome">
+    Welcome {{username}}
+</h1>
+
+<script src="api.js"></script>

@@ -9,6 +9,28 @@
   padding-left: 10px;
 }
 
+.success {
+  padding: 10px;
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  font-size: 18px;
+  text-align: center;
+  color: #3c763d;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.errors {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: #f2dede;
+  border: 1px solid transparent;
+  border-color: #ebcccc;
+  color: #a94442;
+}
+
 .register {
   text-align: center;
 }
@@ -28,15 +50,15 @@
   margin-top: 10px;
 }
 
-.password-no-match {
-  display: none;
-}
-
 .center-block {
   text-align: center;
 }
 
 .login {
+  text-align: center;
+}
+
+.user-welcome {
   text-align: center;
 }
 

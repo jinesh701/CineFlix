@@ -22,19 +22,24 @@
 <div class="row">
     <div class="col-12 success">{{success}}</div>
 </div>
+{{/if}} {{#if error}}
+<div class="row">
+    <div class="col-12 errors">{{error}}</div>
+</div>
 {{/if}}
+
 
 <div class="row login-div">
     <h1 class="login">Login</h1>
 
-    <form>
+    <form method="POST" action="/users/login" aria-label="login" aria-live="assertive">
         <label for="username" class="register-labels col-12">Username</label>
         <div class="col-12 center-block">
-            <input type="text" id="username" class="register-width" placeholder="Username" required>
+            <input type="text" name="username" id="username" class="register-width" placeholder="Username">
         </div>
         <label for="password" class="register-labels col-12">Password</label>
         <div class="col-12 center-block">
-            <input type="password" id="password" class="register-width" placeholder="Password" required>
+            <input type="password" name="password" id="password" class="register-width" placeholder="Password">
         </div>
         <div class="row">
             <div class="col-12 register-submit">
@@ -43,5 +48,3 @@
         </div>
     </form>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

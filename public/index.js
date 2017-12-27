@@ -74,7 +74,7 @@ function addMovieToDb() {
 //Remove movie from database
 function removeMovieFromDb() {
   $("body").on("click", "#deleteMovie", function() {
-    var id = $(this)
+    let id = $(this)
       .closest(".movie-container")
       .attr("id");
     $.ajax({
@@ -87,8 +87,42 @@ function removeMovieFromDb() {
   });
 }
 
+//Mark movie as watched
+function markMovieAsWatched() {
+  $("body").on("click", "#watchedMovie", function() {
+    let id = $(this)
+      .closest(".movie-container")
+      .attr("id");
+    $.ajax({
+      url: "/movies/watchlist/" + id,
+      data: id,
+      type: "PUT"
+    }).done(function(data) {
+      window.location.href = data.redirect;
+    });
+  });
+}
+
+//Remove movie from database
+function removeMovieFromWatched() {
+  $("body").on("click", "#deleteMovieFromWatched", function() {
+    let id = $(this)
+      .closest(".movie-container")
+      .attr("id");
+    $.ajax({
+      url: "/movies/watched/" + id,
+      data: id,
+      type: "DELETE"
+    }).done(function(data) {
+      window.location.href = data.redirect;
+    });
+  });
+}
+
 $(document).ready(() => {
   handleSubmit();
   addMovieToDb();
   removeMovieFromDb();
+  markMovieAsWatched();
+  removeMovieFromWatched();
 });

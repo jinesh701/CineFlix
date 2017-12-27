@@ -24,4 +24,25 @@
     </div>
 </header>
 
-<p>My Watchlist</p>
+{{#if success}}
+<div class="row">
+    <div class="col-12 success">{{success}}</div>
+</div>
+{{/if}} {{#if error_msg}}
+<div class="row">
+    <div class="col-12 errors">{{error_msg}}</div>
+</div>
+{{/if}} {{#if error}}
+<div class="row">
+    <div class="col-12 errors">{{error}}</div>
+</div>
+{{/if}}
+
+<div class="row">
+    <h1 class="center-block">My Watchlist</h1>
+    {{#each movies}}
+    <div class="col-4 center-block">
+        <img src={{poster}} class="movie-poster">
+    </div>
+    {{/each}}
+</div>

@@ -54,4 +54,17 @@ router.post("/watchlist", jsonParser, (req, res) => {
     });
 });
 
+//Remove a movie from watchlist
+router.delete("/watchlist/:id", (req, res) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      req.flash("success", "Movie has been removed from your watchlist");
+      res.status(200).send({ redirect: "/movies/watchlist" });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+
 module.exports = router;

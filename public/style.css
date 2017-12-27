@@ -90,3 +90,25 @@
 .movie-poster {
   padding-top: 30px;
 }
+
+#watchedMovie {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  line-height: 1.5;
+}
+
+#deleteMovie {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  line-height: 1.5;
+}

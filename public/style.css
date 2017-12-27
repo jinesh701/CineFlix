@@ -102,7 +102,8 @@
   line-height: 1.5;
 }
 
-#deleteMovie {
+#deleteMovie,
+#deleteMovieFromWatched {
   background-color: #dc3545;
   border-color: #dc3545;
   color: #fff;
@@ -111,4 +112,29 @@
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+}
+
+.watchlist-header,
+.watched-header {
+  font-size: 50px;
+}
+
+.watched-date {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.watched-title {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.watched-release-date {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.header-fonts {
+  font-size: 25px;
 }

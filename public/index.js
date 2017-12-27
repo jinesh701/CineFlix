@@ -69,7 +69,7 @@ function handleSubmit() {
     queryTarget.val("");
     getMovieInfo(query, displayMovieData);
     getTvInfo(query, displayTvData);
-    $(".search-result").empty();
+    $(".search-result").remove();
     $(".js-no-movie-results").hide();
     $(".js-no-tv-results").hide();
   });

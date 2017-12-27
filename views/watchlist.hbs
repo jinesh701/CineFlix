@@ -41,8 +41,17 @@
 <div class="row">
     <h1 class="center-block">My Watchlist</h1>
     {{#each movies}}
-    <div class="col-4 center-block">
-        <img src={{poster}} class="movie-poster">
+    <div class="movie-container" id={{id}}>
+        <div class="col-4 center-block">
+            <img src={{poster}} class="movie-poster">
+            <div class="col-12">
+                <button type="button" id="watchedMovie">Watched</button>
+                <button type="button" id="deleteMovie">Delete</button>
+            </div>
+        </div>
     </div>
     {{/each}}
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../index.js" type="text/javascript"></script>

@@ -24,4 +24,42 @@
     </div>
 </header>
 
-<p>Watched</p>
+{{#if success}}
+<div class="row">
+    <div class="col-12 success">{{success}}</div>
+</div>
+{{/if}} {{#if error_msg}}
+<div class="row">
+    <div class="col-12 errors">{{error_msg}}</div>
+</div>
+{{/if}} {{#if error}}
+<div class="row">
+    <div class="col-12 errors">{{error}}</div>
+</div>
+{{/if}}
+
+<div class="row">
+    <h1 class="center-block watched-header">Watched</h1>
+    <div class="movie-container col-12">
+        <div class="col-3 center-block header-fonts">Date Watched</div>
+        <div class="col-3 center-block header-fonts">Cover</div>
+        <div class="col-3 center-block header-fonts">Name</div>
+        <div class="col-3 center-block header-fonts">Release</div>
+    </div>
+    {{#each movies}}
+    <div class="movie-container col-12" id={{id}}>
+        <div class="col-3 watched-date">{{updatedAt}}</div>
+        <div class="col-3 center-block">
+            <img src={{poster}} class="movie-poster">
+            <div class="col-12">
+                <button type="button" id="deleteMovieFromWatched">Delete</button>
+            </div>
+        </div>
+        <div class="col-3 watched-title">{{title}}</div>
+        <div class="col-3 watched-release-date">{{release_date}}</div>
+    </div>
+    {{/each}}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="../index.js" type="text/javascript"></script>

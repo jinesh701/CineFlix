@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-const movieSchema = mongoose.Schema(
+const movieandTvSchema = mongoose.Schema(
   {
     poster: String,
     overview: String,
@@ -13,6 +13,6 @@ const movieSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Movie = mongoose.model("Movies", movieSchema);
+const Media = mongoose.model("Watchlist", movieandTvSchema);
 
-module.exports = Movie;
+module.exports = Media;

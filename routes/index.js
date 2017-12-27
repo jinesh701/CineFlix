@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 //Profile page
 router.get("/profile", ensureAuthenticated, (req, res) => {
-  res.render("profile", { title: req.params.username });
+  res.render("profile", { title: "Cineflix" });
 });
 
 function ensureAuthenticated(req, res, next) {

@@ -16,7 +16,7 @@ const expressValidator = require("express-validator");
 const { PORT, DATABASE_URL } = require("./config");
 const routes = require("./routes/index");
 const users = require("./routes/users");
-const movies = require("./routes/movies");
+const media = require("./routes/media");
 
 mongoose.Promise = global.Promise;
 
@@ -95,7 +95,7 @@ app.use(cookieParser());
 //Set routes
 app.use("/", routes);
 app.use("/users", users);
-app.use("/movies", movies);
+app.use("/media", media);
 
 let server;
 

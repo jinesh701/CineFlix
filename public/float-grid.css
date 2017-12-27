@@ -79,9 +79,75 @@
   }
 }
 
+/*Desktop specific styles*/
+@media only screen and (min-width: 641px) {
+  .page-links {
+    list-style-type: none;
+    float: right;
+    margin-top: 30px;
+  }
+
+  .li-page-link {
+    display: inline;
+    padding-left: 10px;
+  }
+
+  .watched-date {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .watched-title {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .watched-release-date {
+    margin-top: 100px;
+    text-align: center;
+  }
+}
+
 /*Adjusted styles for mobile devices*/
 @media only screen and (max-width: 640px) {
+  .nav-bar {
+    text-align: center;
+  }
+
   .page-title {
     text-align: center;
+  }
+
+  .page-links {
+    list-style-type: none;
+    float: left;
+    margin-left: 65px;
+  }
+
+  .li-page-link {
+    display: inline;
+    padding-left: 10px;
+  }
+
+  .watched-div {
+    display: none;
+  }
+
+  .watched-date {
+    padding-top: 40px;
+  }
+
+  .watched-title {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  .watchlist-btn {
+    margin-top: 20px;
+  }
+
+  .result-container {
+    padding-top: 30px;
   }
 }

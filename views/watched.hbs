@@ -2,19 +2,19 @@
     <div class="row">
         <div class="col-4">
             <a href="/profile">
-                <h1>CineFlix</h1>
+                <h1 class="page-title">CineFlix</h1>
             </a>
         </div>
         <div class="col-6">
             <ul class="page-links">
                 <li class="li-page-link">
-                    <a href="/movies/watchlist">Watchlist</a>
+                    <a href="/media/watchlist">Watchlist</a>
                 </li>
                 <li class="li-page-link">
-                    <a href="/movies/watched">Watched</a>
+                    <a href="/media/watched">Watched</a>
                 </li>
                 <li class="li-page-link">
-                    <a href="/movies/search">Search</a>
+                    <a href="/media/search">Search</a>
                 </li>
                 <li class="li-page-link">
                     <a href="/users/logout" id="log-out">Logout</a>
@@ -38,28 +38,29 @@
 </div>
 {{/if}}
 
-<div class="row">
+<div class="row watched-div">
     <h1 class="center-block">Watched</h1>
-    {{#each movies}}
-    <div class="movie-container col-12">
-        <div class="col-3 center-block header-fonts">Date Watched</div>
-        <div class="col-3 center-block header-fonts">Cover</div>
-        <div class="col-3 center-block header-fonts">Name</div>
-        <div class="col-3 center-block header-fonts">Release</div>
-    </div>
-    <div class="movie-container col-12" id={{id}}>
+    <div class="row col-12"></div>
+    <div class="col-3 center-block header-fonts">Date Watched</div>
+    <div class="col-3 center-block header-fonts">Cover</div>
+    <div class="col-3 center-block header-fonts">Name</div>
+    <div class="col-3 center-block header-fonts">Release</div>
+</div>
+<div class="row">
+    {{#each media}}
+    <div class="result-container col-12" id={{id}}>
         <div class="col-3 watched-date">{{updatedAt}}</div>
         <div class="col-3 center-block">
-            <img src={{poster}} class="movie-poster">
+            <img src={{poster}} class="result-poster">
             <div class="col-12">
-                <button type="button" id="deleteMovieFromWatched">Delete</button>
+                <button type="button" id="deleteItemFromWatched">Delete</button>
             </div>
         </div>
         <div class="col-3 watched-title">{{title}}</div>
         <div class="col-3 watched-release-date">{{release_date}}</div>
     </div>
     {{else}}
-    <h2 class="center-block">No movies have been watched</h2>
+    <h2 class="center-block">No movies or shows have been watched</h2>
     {{/each}}
 </div>
 

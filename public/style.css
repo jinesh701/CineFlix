@@ -114,11 +114,6 @@
   line-height: 1.5;
 }
 
-.watchlist-header,
-.watched-header {
-  font-size: 50px;
-}
-
 .watched-date {
   text-align: center;
   margin-top: 100px;
@@ -136,5 +131,5 @@
 }
 
 .header-fonts {
-  font-size: 25px;
+  font-size: 18px;
 }

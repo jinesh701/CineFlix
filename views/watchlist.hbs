@@ -8,13 +8,13 @@
         <div class="col-6">
             <ul class="page-links">
                 <li class="li-page-link">
-                    <a href="/movies/watchlist">Watchlist</a>
+                    <a href="/media/watchlist">Watchlist</a>
                 </li>
                 <li class="li-page-link">
-                    <a href="/movies/watched">Watched</a>
+                    <a href="/media/watched">Watched</a>
                 </li>
                 <li class="li-page-link">
-                    <a href="/movies/search">Search</a>
+                    <a href="/media/search">Search</a>
                 </li>
                 <li class="li-page-link">
                     <a href="/users/logout" id="log-out">Logout</a>
@@ -40,18 +40,19 @@
 
 <div class="row">
     <h1 class="center-block">My Watchlist</h1>
-    {{#each movies}}
-    <div class="movie-container" id={{id}}>
+    {{#each media}}
+    <div class="result-container" id={{id}}>
         <div class="col-4 center-block">
-            <img src={{poster}} class="movie-poster">
+            <p class="hide">{{title}}</p>
+            <img src={{poster}} class="result-poster">
             <div class="col-12">
-                <button type="button" id="watchedMovie">Watched</button>
-                <button type="button" id="deleteMovie">Delete</button>
+                <button type="button" id="watchedItem">Watched</button>
+                <button type="button" id="deleteItem">Delete</button>
             </div>
         </div>
     </div>
     {{else}}
-    <h2 class="center-block">No movies added to watchlist</h2>
+    <h2 class="center-block">No movies or shows have been added to watchlist</h2>
     {{/each}}
 </div>
 

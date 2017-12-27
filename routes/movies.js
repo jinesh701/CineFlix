@@ -1,6 +1,9 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
+const Movie = require("../models/movies");
+const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
 
 //Search page
 router.get("/search", ensureAuthenticated, (req, res) => {
@@ -9,7 +12,14 @@ router.get("/search", ensureAuthenticated, (req, res) => {
 
 //Watchlist page
 router.get("/watchlist", ensureAuthenticated, (req, res) => {
-  res.render("watchlist", { title: "Watchlist" });
+  Movie.find()
+    .then(movies => {
+      res.render("watchlist", { movies, title: "Watchlist" });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "No movies found" });
+    });
 });
 
 //Watched page
@@ -25,5 +35,23 @@ function ensureAuthenticated(req, res, next) {
     res.redirect("/users/login");
   }
 }
+
+//Adding a movie to watchlist
+router.post("/watchlist", jsonParser, (req, res) => {
+  const newMovie = Movie.create({
+    poster: req.body.poster,
+    overview: req.body.overview,
+    title: req.body.title,
+    release_date: req.body.release_date
+  })
+    .then(() => {
+      req.flash("success", "Your movie has been added to your watchlist");
+      res.send({ redirect: "/movies/watchlist" });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+    });
+});
 
 module.exports = router;

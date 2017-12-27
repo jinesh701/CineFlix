@@ -75,15 +75,15 @@
   padding-right: 10px;
 }
 
-.movie-name {
+.result-name {
   text-align: center;
 }
 
-.movie-release-date {
+.result-release-date {
   text-align: center;
 }
 
-.movie-description {
+.result-description {
   text-align: center;
 }
 
@@ -91,11 +91,19 @@
   margin-top: 50px;
 }
 
-.movie-poster {
+.result-poster {
   padding-top: 30px;
 }
 
-#watchedMovie {
+.js-no-tv-results {
+  display: none;
+}
+
+.js-no-movie-results {
+  display: none;
+}
+
+#watchedItem {
   background-color: #28a745;
   border-color: #28a745;
   color: #fff;
@@ -106,8 +114,8 @@
   line-height: 1.5;
 }
 
-#deleteMovie,
-#deleteMovieFromWatched {
+#deleteItem,
+#deleteItemFromWatched {
   background-color: #dc3545;
   border-color: #dc3545;
   color: #fff;
@@ -136,4 +144,8 @@
 
 .header-fonts {
   font-size: 18px;
+}
+
+.hide {
+  display: none;
 }

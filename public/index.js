@@ -1,23 +1,25 @@
+//Display movie data
 function displayMovieData(data) {
-  console.log(data);
+  if (data.total_results === 0) {
+    $(".js-no-movie-results").show();
+  }
   for (index in data.results) {
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[index].poster_path
     }`;
-    console.log(poster);
     if (data.results[index].poster_path === null) {
       poster = "http://via.placeholder.com/185x260";
     }
-    $("body").append(`<div class="row movie-result">
+    $("body").append(`<div class="row search-result">
       <div class="col-3">
           <img src="${poster}">
       </div>
       <div class="col-3">
-          <h3 class="movie-name">${data.results[index].title}</h3>
-          <p class="movie-release-date">${data.results[index].release_date}</p>
+          <h3 class="result-name">${data.results[index].title}</h3>
+          <p class="result-release-date">${data.results[index].release_date}</p>
       </div>
       <div class="col-3">
-          <p class="movie-description">${data.results[index].overview}</p>
+          <p class="result-description">${data.results[index].overview}</p>
       </div>
       <div class="col-3">
           <button type="button" class="watchlist-btn">Add to watchlist</button>
@@ -26,7 +28,39 @@ function displayMovieData(data) {
   }
 }
 
-//Submit user input for movie search
+//Display tv data
+function displayTvData(data) {
+  if (data.total_results === 0) {
+    $(".js-no-tv-results").show();
+  }
+  for (index in data.results) {
+    let poster = `http://image.tmdb.org/t/p/w185/${
+      data.results[index].poster_path
+    }`;
+    if (data.results[index].poster_path === null) {
+      poster = "http://via.placeholder.com/185x260";
+    }
+    $("body").append(`<div class="row search-result">
+      <div class="col-3">
+          <img src="${poster}">
+      </div>
+      <div class="col-3">
+          <h3 class="result-name">${data.results[index].name}</h3>
+          <p class="result-release-date">${
+            data.results[index].first_air_date
+          }</p>
+      </div>
+      <div class="col-3">
+          <p class="result-description">${data.results[index].overview}</p>
+      </div>
+      <div class="col-3">
+          <button type="button" class="watchlist-btn">Add to watchlist</button>
+      </div>
+  </div>`);
+  }
+}
+
+//Submit user input for tv show/movie search
 function handleSubmit() {
   $(".js-search-form").submit(event => {
     event.preventDefault();
@@ -34,39 +68,42 @@ function handleSubmit() {
     const query = $(queryTarget).val();
     queryTarget.val("");
     getMovieInfo(query, displayMovieData);
-    $(".movie-result").empty();
+    getTvInfo(query, displayTvData);
+    $(".search-result").empty();
+    $(".js-no-movie-results").hide();
+    $(".js-no-tv-results").hide();
   });
 }
 
-//Add movie to database
-function addMovieToDb() {
+//Add tv show/movie to database
+function addItemToDb() {
   $("body").on("click", ".watchlist-btn", function(event) {
     event.preventDefault();
     let poster = $(this)
-      .closest(".movie-result")
+      .closest(".search-result")
       .find("img")
       .attr("src");
     let overview = $(this)
-      .closest(".movie-result")
-      .find(".movie-description")
+      .closest(".search-result")
+      .find(".result-description")
       .text();
     let title = $(this)
-      .closest(".movie-result")
-      .find(".movie-name")
+      .closest(".search-result")
+      .find(".result-name")
       .text();
     let release_date = $(this)
-      .closest(".movie-result")
-      .find(".movie-release-date")
+      .closest(".search-result")
+      .find(".result-release-date")
       .text();
-    let newMovie = {
+    let newMedia = {
       poster: poster,
       overview: overview,
       title: title,
       release_date: release_date
     };
     $.ajax({
-      url: "/movies/watchlist",
-      data: newMovie,
+      url: "/media/watchlist",
+      data: newMedia,
       type: "POST",
       dataType: "json"
     }).done(function(data) {
@@ -75,15 +112,23 @@ function addMovieToDb() {
   });
 }
 
-//Remove movie from database
-function removeMovieFromDb() {
-  $("body").on("click", "#deleteMovie", function() {
+//Remove tv show/movie from database
+function removeItemFromDb() {
+  $("body").on("click", "#deleteItem", function() {
+    let title = $(this)
+      .closest(".result-container")
+      .find(".hide")
+      .text();
     let id = $(this)
-      .closest(".movie-container")
+      .closest(".result-container")
       .attr("id");
+    let data_test = {
+      id: id,
+      title: title
+    };
     $.ajax({
-      url: "/movies/watchlist/" + id,
-      data: id,
+      url: "/media/watchlist/" + id,
+      data: data_test,
       type: "DELETE"
     }).done(function(data) {
       window.location.href = data.redirect;
@@ -91,15 +136,23 @@ function removeMovieFromDb() {
   });
 }
 
-//Mark movie as watched
-function markMovieAsWatched() {
-  $("body").on("click", "#watchedMovie", function() {
+//Mark tv show/movie as watched
+function markItemAsWatched() {
+  $("body").on("click", "#watchedItem", function() {
+    let title = $(this)
+      .closest(".result-container")
+      .find(".hide")
+      .text();
     let id = $(this)
-      .closest(".movie-container")
+      .closest(".result-container")
       .attr("id");
+    let data_test = {
+      id: id,
+      title: title
+    };
     $.ajax({
-      url: "/movies/watchlist/" + id,
-      data: id,
+      url: "/media/watchlist/" + id,
+      data: data_test,
       type: "PUT"
     }).done(function(data) {
       window.location.href = data.redirect;
@@ -107,15 +160,23 @@ function markMovieAsWatched() {
   });
 }
 
-//Remove movie from database
-function removeMovieFromWatched() {
-  $("body").on("click", "#deleteMovieFromWatched", function() {
+//Remove tv show/movie from database
+function removeItemFromWatched() {
+  $("body").on("click", "#deleteItemFromWatched", function() {
+    let title = $(this)
+      .closest(".result-container")
+      .find(".watched-title")
+      .text();
     let id = $(this)
-      .closest(".movie-container")
+      .closest(".result-container")
       .attr("id");
+    let data_test = {
+      id: id,
+      title: title
+    };
     $.ajax({
-      url: "/movies/watched/" + id,
-      data: id,
+      url: "/media/watched/" + id,
+      data: data_test,
       type: "DELETE"
     }).done(function(data) {
       window.location.href = data.redirect;
@@ -125,8 +186,8 @@ function removeMovieFromWatched() {
 
 $(document).ready(() => {
   handleSubmit();
-  addMovieToDb();
-  removeMovieFromDb();
-  markMovieAsWatched();
-  removeMovieFromWatched();
+  addItemToDb();
+  removeItemFromDb();
+  markItemAsWatched();
+  removeItemFromWatched();
 });

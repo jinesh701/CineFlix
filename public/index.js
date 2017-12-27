@@ -1,17 +1,23 @@
 function displayMovieData(data) {
-  for (index in data.movieData) {
+  console.log(data);
+  for (index in data.results) {
+    let poster = `http://image.tmdb.org/t/p/w185/${
+      data.results[index].poster_path
+    }`;
+    console.log(poster);
+    if (data.results[index].poster_path === null) {
+      poster = "http://via.placeholder.com/185x260";
+    }
     $("body").append(`<div class="row movie-result">
       <div class="col-3">
-          <img src="${data.movieData[index].poster}">
+          <img src="${poster}">
       </div>
       <div class="col-3">
-          <h3 class="movie-name">${data.movieData[index].title}</h3>
-          <p class="movie-release-date">${
-            data.movieData[index].release_date
-          }</p>
+          <h3 class="movie-name">${data.results[index].title}</h3>
+          <p class="movie-release-date">${data.results[index].release_date}</p>
       </div>
       <div class="col-3">
-          <p class="movie-description">${data.movieData[index].overview}</p>
+          <p class="movie-description">${data.results[index].overview}</p>
       </div>
       <div class="col-3">
           <button type="button" class="watchlist-btn">Add to watchlist</button>
@@ -20,17 +26,15 @@ function displayMovieData(data) {
   }
 }
 
-function getAndDisplayMovieData() {
-  getMovieData(displayMovieData);
-}
-
 //Submit user input for movie search
 function handleSubmit() {
   $(".js-search-form").submit(event => {
     event.preventDefault();
     const queryTarget = $(event.currentTarget).find(".js-user-input");
     const query = $(queryTarget).val();
-    getMovieInfo(query, getAndDisplayMovieData);
+    queryTarget.val("");
+    getMovieInfo(query, displayMovieData);
+    $(".movie-result").empty();
   });
 }
 

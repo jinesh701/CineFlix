@@ -13,3 +13,12 @@ function getMovieInfo(searchMovie, callback) {
   };
   $.getJSON(MOVIE_SEARCH_URL, settings, callback);
 }
+
+function getTvInfo(searchShow, callback) {
+  let settings = {
+    api_key: API_KEY,
+    query: `${searchShow}`,
+    page: 1
+  };
+  $.getJSON(TV_SEARCH_URL, settings, callback);
+}

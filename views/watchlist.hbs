@@ -39,7 +39,7 @@
 {{/if}}
 
 <div class="row">
-    <h1 class="center-block watchlist-header">My Watchlist</h1>
+    <h1 class="center-block">My Watchlist</h1>
     {{#each movies}}
     <div class="movie-container" id={{id}}>
         <div class="col-4 center-block">
@@ -50,6 +50,8 @@
             </div>
         </div>
     </div>
+    {{else}}
+    <h2 class="center-block">No movies added to watchlist</h2>
     {{/each}}
 </div>
 

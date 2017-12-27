@@ -1,6 +1,6 @@
 function displayMovieData(data) {
   for (index in data.movieData) {
-    $("body").append(`<div class="row">
+    $("body").append(`<div class="row movie-result">
       <div class="col-3">
           <img src="${data.movieData[index].poster}">
       </div>
@@ -24,6 +24,7 @@ function getAndDisplayMovieData() {
   getMovieData(displayMovieData);
 }
 
+//Submit user input for movie search
 function handleSubmit() {
   $(".js-search-form").submit(event => {
     event.preventDefault();
@@ -37,15 +38,22 @@ function handleSubmit() {
 function addMovieToDb() {
   $("body").on("click", ".watchlist-btn", function(event) {
     event.preventDefault();
-    let details = $(this)
-      .parent()
-      .parent()
-      .parent()
-      .parent();
-    let poster = details.find("img").attr("src");
-    let overview = details.find(".movie-description").text();
-    let title = details.find(".movie-name").text();
-    let release_date = details.find(".movie-release-date").text();
+    let poster = $(this)
+      .closest(".movie-result")
+      .find("img")
+      .attr("src");
+    let overview = $(this)
+      .closest(".movie-result")
+      .find(".movie-description")
+      .text();
+    let title = $(this)
+      .closest(".movie-result")
+      .find(".movie-name")
+      .text();
+    let release_date = $(this)
+      .closest(".movie-result")
+      .find(".movie-release-date")
+      .text();
     let newMovie = {
       poster: poster,
       overview: overview,
@@ -63,7 +71,24 @@ function addMovieToDb() {
   });
 }
 
+//Remove movie from database
+function removeMovieFromDb() {
+  $("body").on("click", "#deleteMovie", function() {
+    var id = $(this)
+      .closest(".movie-container")
+      .attr("id");
+    $.ajax({
+      url: "/movies/watchlist/" + id,
+      data: id,
+      type: "DELETE"
+    }).done(function(data) {
+      window.location.href = data.redirect;
+    });
+  });
+}
+
 $(document).ready(() => {
   handleSubmit();
   addMovieToDb();
+  removeMovieFromDb();
 });

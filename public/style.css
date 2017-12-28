@@ -2,6 +2,12 @@ html {
   padding-bottom: 25px;
 }
 
+.footer-container {
+  position: relative;
+  text-align: center;
+  padding-top: 30px;
+}
+
 .success {
   padding: 10px;
   background-color: #dff0d8;

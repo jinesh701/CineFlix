@@ -123,16 +123,26 @@
     margin-top: 100px;
     text-align: center;
   }
+
+  .mobile-landing {
+    display: none;
+  }
 }
 
 /*Adjusted styles for mobile devices*/
 @media only screen and (max-width: 640px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
   .nav-bar {
     text-align: center;
   }
 
   .page-title {
     text-align: center;
+    font-size: 60px;
   }
 
   .page-links {
@@ -165,5 +175,55 @@
 
   .result-container {
     padding-top: 30px;
+  }
+
+  .landing-movies,
+  .landing-tv {
+    font-size: 50px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .now-playing-header,
+  .popular-header {
+    font-size: 20px;
+    margin-top: -20px;
+    padding-left: 5px;
+  }
+
+  .upcoming-header,
+  .top-rated-header {
+    font-size: 20px;
+    padding-top: 30px;
+  }
+
+  .landing-movie-container,
+  .landing-tv-container {
+    display: none;
+  }
+
+  .mobile-landing-img {
+    width: 100%;
+    padding-top: 20px;
+  }
+
+  .mobile-title {
+    display: block;
+    margin-top: -30px;
+    color: white;
+    padding-left: 5px;
+  }
+
+  .mobile-now-playing-div,
+  .mobile-upcoming-div,
+  .mobile-popular-div,
+  .mobile-top-rated-div {
+    margin-top: -35px;
+  }
+
+  .mobile-landing-tv {
+    padding-top: 50px;
+    font-size: 50px;
+    text-align: center;
   }
 }

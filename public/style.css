@@ -1,3 +1,7 @@
+html {
+  padding-bottom: 25px;
+}
+
 .success {
   padding: 10px;
   background-color: #dff0d8;
@@ -26,8 +30,8 @@
 }
 
 .landing-img {
-  height: 244px;
-  width: 165px;
+  max-width: 100%;
+  height: auto;
 }
 
 .register {

@@ -5,10 +5,17 @@ function movieNowPlayingDisplay(data) {
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
+    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+      data.results[i].backdrop_path
+    }`;
     $("#movies-now-playing").append(`<div class="col-2">
           <img class="landing-img" src="${poster}">
-          <b>${title}</b>
-      </div>`);
+          <br>
+          <b class="landing-title">${title}</b></div>`);
+
+    $("#mobile-now-playing").append(
+      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${title}</b>`
+    );
   }
 }
 
@@ -19,10 +26,18 @@ function movieUpcomingDisplay(data) {
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
+    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+      data.results[i].backdrop_path
+    }`;
     $("#movies-upcoming").append(`<div class="col-2">
           <img class="landing-img" src="${poster}">
-          <b>${title}</b>
+          <br>
+          <b class="landing-title">${title}</b>
       </div>`);
+
+    $("#mobile-upcoming").append(
+      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${title}</b>`
+    );
   }
 }
 
@@ -33,10 +48,18 @@ function tvPopularDisplay(data) {
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
+    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+      data.results[i].backdrop_path
+    }`;
     $("#tv-popular").append(`<div class="col-2">
           <img class="landing-img" src="${poster}">
-          <b>${name}</b>
+          <br>
+          <b class="landing-title">${name}</b>
       </div>`);
+
+    $("#mobile-popular").append(
+      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${name}</b>`
+    );
   }
 }
 
@@ -47,10 +70,18 @@ function tvTopRatedDisplay(data) {
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
+    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+      data.results[i].backdrop_path
+    }`;
     $("#tv-top-rated").append(`<div class="col-2">
           <img class="landing-img" src="${poster}">
-          <b>${name}</b>
+          <br>
+          <b class="landing-title">${name}</b>
       </div>`);
+
+    $("#mobile-top-rated").append(
+      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${name}</b>`
+    );
   }
 }
 

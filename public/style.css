@@ -20,6 +20,16 @@
   color: #a94442;
 }
 
+.landing-movies,
+.landing-tv {
+  text-decoration: underline;
+}
+
+.landing-img {
+  height: 244px;
+  width: 165px;
+}
+
 .register {
   text-align: center;
 }

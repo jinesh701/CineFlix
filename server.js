@@ -12,6 +12,8 @@ const path = require("path");
 const passport = require("passport");
 const hbs = require("express-handlebars");
 const expressValidator = require("express-validator");
+var Handlebars = require("handlebars");
+var HandlebarsIntl = require("handlebars-intl");
 
 const { PORT, DATABASE_URL } = require("./config");
 const routes = require("./routes/index");
@@ -33,6 +35,9 @@ app.engine(
 );
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
+
+//Handlebars helpers
+HandlebarsIntl.registerWith(Handlebars);
 
 //Logging
 app.use(morgan("common"));

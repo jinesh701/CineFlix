@@ -131,11 +131,11 @@ function displayMovieData(data) {
       <div class="col-3">
           <img src="${poster}" alt="${data.results[index].title} poster">
       </div>
-      <div class="col-3">
+      <div class="col-3 title-release-container">
           <h3 class="result-name">${data.results[index].title}</h3>
           <p class="result-release-date">${releaseDate}</p>
       </div>
-      <div class="col-4">
+      <div class="col-4 overview-container">
           <p class="result-description">${overview}</p>
       </div>
       <div class="col-12 watchlist-btn-container">
@@ -172,11 +172,11 @@ function displayTvData(data) {
       <div class="col-3">
           <img src="${poster}" alt="${data.results[index].name} poster">
       </div>
-      <div class="col-3">
+      <div class="col-3 title-release-container">
           <h3 class="result-name">${data.results[index].name}</h3>
           <p class="result-release-date">${releaseDate}</p>
       </div>
-      <div class="col-4">
+      <div class="col-4 overview-container">
           <p class="result-description">${overview}</p>
       </div>
       <div class="col-12 watchlist-btn-container">

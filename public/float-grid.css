@@ -136,7 +136,6 @@
     background: #fff;
     border-radius: 2px;
     display: inline-block;
-    margin: 1rem;
     position: relative;
     width: 1028px;
     height: auto;
@@ -144,6 +143,18 @@
 
   .card-1 {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+
+  .search-result {
+    width: 100%;
+  }
+
+  .title-release-container {
+    margin-left: 50px;
+  }
+
+  .overview-container {
+    margin-left: 20px;
   }
 
   .watched-date {

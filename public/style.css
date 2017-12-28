@@ -2,6 +2,19 @@ html {
   padding-bottom: 25px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.landing-info {
+  text-align: center;
+}
+
+.landing-page-container {
+  padding-top: 50px;
+}
+
 .footer-container {
   position: relative;
   text-align: center;

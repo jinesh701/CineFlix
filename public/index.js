@@ -1,3 +1,59 @@
+//Display now playing movies
+function movieNowPlayingDisplay(data) {
+  for (let i = 0; i <= 5; i++) {
+    let title = data.results[i].title;
+    let poster = `http://image.tmdb.org/t/p/w185/${
+      data.results[i].poster_path
+    }`;
+    $("#movies-now-playing").append(`<div class="col-2">
+          <img class="landing-img" src="${poster}">
+          <b>${title}</b>
+      </div>`);
+  }
+}
+
+//Display upcoming movies
+function movieUpcomingDisplay(data) {
+  for (let i = 0; i <= 5; i++) {
+    let title = data.results[i].title;
+    let poster = `http://image.tmdb.org/t/p/w185/${
+      data.results[i].poster_path
+    }`;
+    $("#movies-upcoming").append(`<div class="col-2">
+          <img class="landing-img" src="${poster}">
+          <b>${title}</b>
+      </div>`);
+  }
+}
+
+//Display popular tv shows
+function tvPopularDisplay(data) {
+  for (let i = 0; i <= 5; i++) {
+    let name = data.results[i].name;
+    let poster = `http://image.tmdb.org/t/p/w185/${
+      data.results[i].poster_path
+    }`;
+    $("#tv-popular").append(`<div class="col-2">
+          <img class="landing-img" src="${poster}">
+          <b>${name}</b>
+      </div>`);
+  }
+}
+
+//Display top rated tv shows
+function tvTopRatedDisplay(data) {
+  for (let i = 0; i <= 5; i++) {
+    let name = data.results[i].name;
+    let poster = `http://image.tmdb.org/t/p/w185/${
+      data.results[i].poster_path
+    }`;
+    $("#tv-top-rated").append(`<div class="col-2">
+          <img class="landing-img" src="${poster}">
+          <b>${name}</b>
+      </div>`);
+  }
+}
+
 //Display movie data
 function displayMovieData(data) {
   if (data.total_results === 0) {
@@ -185,6 +241,8 @@ function removeItemFromWatched() {
 }
 
 $(document).ready(() => {
+  getLandingMovies(movieNowPlayingDisplay, movieUpcomingDisplay);
+  getLandingTv(tvPopularDisplay, tvTopRatedDisplay);
   handleSubmit();
   addItemToDb();
   removeItemFromDb();

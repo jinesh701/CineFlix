@@ -10,7 +10,7 @@ function movieNowPlayingDisplay(data) {
       data.results[i].backdrop_path
     }`;
     $("#movies-now-playing").append(`<div class="col-2">
-          <img class="landing-img" src="${poster}">
+          <img class="landing-img" src="${poster}" alt="${title} poster">
           <br>
           <b class="landing-title">${title}</b>
           <span class="landing-release-date">${releaseDate}</span>
@@ -18,7 +18,7 @@ function movieNowPlayingDisplay(data) {
           `);
 
     $("#mobile-now-playing").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}">
+      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
       <b class="mobile-title">${title}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -37,14 +37,14 @@ function movieUpcomingDisplay(data) {
       data.results[i].backdrop_path
     }`;
     $("#movies-upcoming").append(`<div class="col-2">
-          <img class="landing-img" src="${poster}">
+          <img class="landing-img" src="${poster}" alt="${title} poster">
           <br>
           <b class="landing-title">${title}</b>
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-upcoming").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}">
+      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
       <b class="mobile-title">${title}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -63,14 +63,14 @@ function tvPopularDisplay(data) {
       data.results[i].backdrop_path
     }`;
     $("#tv-popular").append(`<div class="col-2">
-          <img class="landing-img" src="${poster}">
+          <img class="landing-img" src="${poster}" alt="${name} poster">
           <br>
           <b class="landing-title">${name}</b>
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-popular").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}">
+      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
       <b class="mobile-title">${name}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -89,14 +89,14 @@ function tvTopRatedDisplay(data) {
       data.results[i].backdrop_path
     }`;
     $("#tv-top-rated").append(`<div class="col-2">
-          <img class="landing-img" src="${poster}">
+          <img class="landing-img" src="${poster}" alt="${name} poster">
           <br>
           <b class="landing-title">${name}</b>
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-top-rated").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}">
+      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
       <b class="mobile-title">${name}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -118,7 +118,7 @@ function displayMovieData(data) {
     let releaseDate = moment(data.results[index].release_date).format("LL");
     $(".js-search-results").append(`<div class="row search-result">
       <div class="col-3">
-          <img src="${poster}">
+          <img src="${poster}" alt="${data.results[index].title} poster">
       </div>
       <div class="col-3">
           <h3 class="result-name">${data.results[index].title}</h3>
@@ -149,7 +149,7 @@ function displayTvData(data) {
     let releaseDate = moment(data.results[index].first_air_date).format("LL");
     $(".js-search-results").append(`<div class="row search-result">
       <div class="col-3">
-          <img src="${poster}">
+          <img src="${poster}" alt="${data.results[index].name} poster">
       </div>
       <div class="col-3">
           <h3 class="result-name">${data.results[index].name}</h3>

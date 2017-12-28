@@ -131,6 +131,21 @@ body {
   display: none;
 }
 
+.watchlist-btn-container {
+  margin-bottom: 20px;
+}
+
+.watchlist-btn {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  line-height: 1.5;
+}
+
 #watchedItem {
   background-color: #28a745;
   border-color: #28a745;
@@ -140,6 +155,10 @@ body {
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+}
+
+.delete-btn-container {
+  padding-bottom: 10px;
 }
 
 #deleteItem,

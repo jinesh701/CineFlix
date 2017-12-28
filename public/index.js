@@ -2,6 +2,7 @@
 function movieNowPlayingDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let title = data.results[i].title;
+    let releaseDate = moment(data.results[i].release_date).format("LL");
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
@@ -11,10 +12,15 @@ function movieNowPlayingDisplay(data) {
     $("#movies-now-playing").append(`<div class="col-2">
           <img class="landing-img" src="${poster}">
           <br>
-          <b class="landing-title">${title}</b></div>`);
+          <b class="landing-title">${title}</b>
+          <span class="landing-release-date">${releaseDate}</span>
+          </div>
+          `);
 
     $("#mobile-now-playing").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${title}</b>`
+      `<img class="mobile-landing-img" src="${mobilePoster}">
+      <b class="mobile-title">${title}</b>
+      <span class="landing-release-date">${releaseDate}</span>`
     );
   }
 }
@@ -23,6 +29,7 @@ function movieNowPlayingDisplay(data) {
 function movieUpcomingDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let title = data.results[i].title;
+    let releaseDate = moment(data.results[i].release_date).format("LL");
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
@@ -33,10 +40,13 @@ function movieUpcomingDisplay(data) {
           <img class="landing-img" src="${poster}">
           <br>
           <b class="landing-title">${title}</b>
+          <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-upcoming").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${title}</b>`
+      `<img class="mobile-landing-img" src="${mobilePoster}">
+      <b class="mobile-title">${title}</b>
+      <span class="landing-release-date">${releaseDate}</span>`
     );
   }
 }
@@ -45,6 +55,7 @@ function movieUpcomingDisplay(data) {
 function tvPopularDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let name = data.results[i].name;
+    let releaseDate = moment(data.results[i].first_air_date).format("LL");
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
@@ -55,10 +66,13 @@ function tvPopularDisplay(data) {
           <img class="landing-img" src="${poster}">
           <br>
           <b class="landing-title">${name}</b>
+          <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-popular").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${name}</b>`
+      `<img class="mobile-landing-img" src="${mobilePoster}">
+      <b class="mobile-title">${name}</b>
+      <span class="landing-release-date">${releaseDate}</span>`
     );
   }
 }
@@ -67,6 +81,7 @@ function tvPopularDisplay(data) {
 function tvTopRatedDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let name = data.results[i].name;
+    let releaseDate = moment(data.results[i].first_air_date).format("LL");
     let poster = `http://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
@@ -77,10 +92,13 @@ function tvTopRatedDisplay(data) {
           <img class="landing-img" src="${poster}">
           <br>
           <b class="landing-title">${name}</b>
+          <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-top-rated").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}"><b class="mobile-title">${name}</b>`
+      `<img class="mobile-landing-img" src="${mobilePoster}">
+      <b class="mobile-title">${name}</b>
+      <span class="landing-release-date">${releaseDate}</span>`
     );
   }
 }
@@ -97,13 +115,14 @@ function displayMovieData(data) {
     if (data.results[index].poster_path === null) {
       poster = "http://via.placeholder.com/185x260";
     }
+    let releaseDate = moment(data.results[index].release_date).format("LL");
     $("body").append(`<div class="row search-result">
       <div class="col-3">
           <img src="${poster}">
       </div>
       <div class="col-3">
           <h3 class="result-name">${data.results[index].title}</h3>
-          <p class="result-release-date">${data.results[index].release_date}</p>
+          <p class="result-release-date">${releaseDate}</p>
       </div>
       <div class="col-3">
           <p class="result-description">${data.results[index].overview}</p>
@@ -127,15 +146,14 @@ function displayTvData(data) {
     if (data.results[index].poster_path === null) {
       poster = "http://via.placeholder.com/185x260";
     }
+    let releaseDate = moment(data.results[index].first_air_date).format("LL");
     $("body").append(`<div class="row search-result">
       <div class="col-3">
           <img src="${poster}">
       </div>
       <div class="col-3">
           <h3 class="result-name">${data.results[index].name}</h3>
-          <p class="result-release-date">${
-            data.results[index].first_air_date
-          }</p>
+          <p class="result-release-date">${releaseDate}</p>
       </div>
       <div class="col-3">
           <p class="result-description">${data.results[index].overview}</p>

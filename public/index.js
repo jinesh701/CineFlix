@@ -3,10 +3,10 @@ function movieNowPlayingDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let title = data.results[i].title;
     let releaseDate = moment(data.results[i].release_date).format("LL");
-    let poster = `http://image.tmdb.org/t/p/w185/${
+    let poster = `https://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
-    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+    let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
     $("#movies-now-playing").append(`<div class="col-2">
@@ -30,10 +30,10 @@ function movieUpcomingDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let title = data.results[i].title;
     let releaseDate = moment(data.results[i].release_date).format("LL");
-    let poster = `http://image.tmdb.org/t/p/w185/${
+    let poster = `https://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
-    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+    let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
     $("#movies-upcoming").append(`<div class="col-2">
@@ -56,10 +56,10 @@ function tvPopularDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let name = data.results[i].name;
     let releaseDate = moment(data.results[i].first_air_date).format("LL");
-    let poster = `http://image.tmdb.org/t/p/w185/${
+    let poster = `https://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
-    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+    let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
     $("#tv-popular").append(`<div class="col-2">
@@ -82,10 +82,10 @@ function tvTopRatedDisplay(data) {
   for (let i = 0; i <= 5; i++) {
     let name = data.results[i].name;
     let releaseDate = moment(data.results[i].first_air_date).format("LL");
-    let poster = `http://image.tmdb.org/t/p/w185/${
+    let poster = `https://image.tmdb.org/t/p/w185/${
       data.results[i].poster_path
     }`;
-    let mobilePoster = `http://image.tmdb.org/t/p/w500/${
+    let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
     $("#tv-top-rated").append(`<div class="col-2">
@@ -109,11 +109,11 @@ function displayMovieData(data) {
     $(".js-no-movie-results").show();
   }
   for (index in data.results) {
-    let poster = `http://image.tmdb.org/t/p/w185/${
+    let poster = `https://image.tmdb.org/t/p/w185/${
       data.results[index].poster_path
     }`;
     if (data.results[index].poster_path === null) {
-      poster = "http://via.placeholder.com/185x260";
+      poster = "https://via.placeholder.com/185x260";
     }
     let releaseDate = moment(data.results[index].release_date).format("LL");
     $("body").append(`<div class="row search-result">
@@ -140,11 +140,11 @@ function displayTvData(data) {
     $(".js-no-tv-results").show();
   }
   for (index in data.results) {
-    let poster = `http://image.tmdb.org/t/p/w185/${
+    let poster = `https://image.tmdb.org/t/p/w185/${
       data.results[index].poster_path
     }`;
     if (data.results[index].poster_path === null) {
-      poster = "http://via.placeholder.com/185x260";
+      poster = "https://via.placeholder.com/185x260";
     }
     let releaseDate = moment(data.results[index].first_air_date).format("LL");
     $("body").append(`<div class="row search-result">

@@ -50,22 +50,21 @@
 </div>
 <div class="row">
     {{#each media}}
-    <div class="result-container col-12" id={{id}}>
-        <div class="card card-1">
-            <div class="col-3 watched-date">{{formatDate updatedAt}}</div>
-            <div class="col-3 center-block">
-                <img src={{poster}} class="result-poster">
-                <div class="col-12 delete-btn-container">
-                    <button type="button" id="deleteItemFromWatched">Delete</button>
-                </div>
+    <div class="result-container card card-1 col-12" id={{id}}>
+        <div class="col-3 watched-date">{{formatDate updatedAt}}</div>
+        <div class="col-3 center-block">
+            <img src={{poster}} class="result-poster">
+            <div class="col-12 delete-btn-container">
+                <button type="button" id="deleteItemFromWatched">Delete</button>
             </div>
-            <div class="col-3 watched-title">{{title}}</div>
-            <div class="col-3 watched-release-date">{{release_date}}</div>
         </div>
+        <div class="col-3 watched-title">{{title}}</div>
+        <div class="col-3 watched-release-date">{{release_date}}</div>
     </div>
-    {{else}}
-    <h2 class="center-block">No movies or shows have been watched</h2>
-    {{/each}}
+</div>
+{{else}}
+<h2 class="center-block">No movies or shows have been watched</h2>
+{{/each}}
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -105,6 +105,7 @@ function tvTopRatedDisplay(data) {
 
 //Display movie data
 function displayMovieData(data) {
+  console.log(data);
   if (data.total_results === 0) {
     $(".js-no-movie-results").show();
   }
@@ -115,8 +116,19 @@ function displayMovieData(data) {
     if (data.results[index].poster_path === null) {
       poster = "https://via.placeholder.com/185x260";
     }
+    let overview = "";
+    if (data.results[index].overview === "") {
+      overview = "No overview was found";
+    } else {
+      overview = `${data.results[index].overview}`;
+    }
     let releaseDate = moment(data.results[index].release_date).format("LL");
-    $(".js-search-results").append(`<div class="row search-result">
+    if (data.results[index].release_date === "") {
+      releaseDate = "No release date was found";
+    }
+    $(".js-search-results").append(`
+    <div class="row">
+    <div class="search-result card card-1">
       <div class="col-3">
           <img src="${poster}" alt="${data.results[index].title} poster">
       </div>
@@ -124,18 +136,20 @@ function displayMovieData(data) {
           <h3 class="result-name">${data.results[index].title}</h3>
           <p class="result-release-date">${releaseDate}</p>
       </div>
-      <div class="col-3">
-          <p class="result-description">${data.results[index].overview}</p>
+      <div class="col-4">
+          <p class="result-description">${overview}</p>
       </div>
-      <div class="col-3">
+      <div class="col-12">
           <button type="button" class="watchlist-btn">Add to watchlist</button>
       </div>
+    </div>
   </div>`);
   }
 }
 
 //Display tv data
 function displayTvData(data) {
+  console.log(data);
   if (data.total_results === 0) {
     $(".js-no-tv-results").show();
   }
@@ -146,8 +160,17 @@ function displayTvData(data) {
     if (data.results[index].poster_path === null) {
       poster = "https://via.placeholder.com/185x260";
     }
+    if (data.results[index].overview === "") {
+      overview = "No overview was found";
+    } else {
+      overview = `${data.results[index].overview}`;
+    }
     let releaseDate = moment(data.results[index].first_air_date).format("LL");
-    $(".js-search-results").append(`<div class="row search-result">
+    if (data.results[index].first_air_date === "") {
+      releaseDate = "No release date was found";
+    }
+    $(".js-search-results").append(`<div class="row">
+    <div class="search-result card card-1">
       <div class="col-3">
           <img src="${poster}" alt="${data.results[index].name} poster">
       </div>
@@ -155,12 +178,13 @@ function displayTvData(data) {
           <h3 class="result-name">${data.results[index].name}</h3>
           <p class="result-release-date">${releaseDate}</p>
       </div>
-      <div class="col-3">
-          <p class="result-description">${data.results[index].overview}</p>
+      <div class="col-4">
+          <p class="result-description">${overview}</p>
       </div>
-      <div class="col-3">
+      <div class="col-12">
           <button type="button" class="watchlist-btn">Add to watchlist</button>
       </div>
+    </div>
   </div>`);
   }
 }

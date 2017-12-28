@@ -105,7 +105,6 @@ function tvTopRatedDisplay(data) {
 
 //Display movie data
 function displayMovieData(data) {
-  console.log(data);
   if (data.total_results === 0) {
     $(".js-no-movie-results").show();
   }
@@ -139,7 +138,7 @@ function displayMovieData(data) {
       <div class="col-4">
           <p class="result-description">${overview}</p>
       </div>
-      <div class="col-12">
+      <div class="col-12 watchlist-btn-container">
           <button type="button" class="watchlist-btn">Add to watchlist</button>
       </div>
     </div>
@@ -149,7 +148,6 @@ function displayMovieData(data) {
 
 //Display tv data
 function displayTvData(data) {
-  console.log(data);
   if (data.total_results === 0) {
     $(".js-no-tv-results").show();
   }
@@ -181,7 +179,7 @@ function displayTvData(data) {
       <div class="col-4">
           <p class="result-description">${overview}</p>
       </div>
-      <div class="col-12">
+      <div class="col-12 watchlist-btn-container">
           <button type="button" class="watchlist-btn">Add to watchlist</button>
       </div>
     </div>

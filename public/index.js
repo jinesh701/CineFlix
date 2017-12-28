@@ -116,7 +116,7 @@ function displayMovieData(data) {
       poster = "https://via.placeholder.com/185x260";
     }
     let releaseDate = moment(data.results[index].release_date).format("LL");
-    $("body").append(`<div class="row search-result">
+    $(".js-search-results").append(`<div class="row search-result">
       <div class="col-3">
           <img src="${poster}">
       </div>
@@ -147,7 +147,7 @@ function displayTvData(data) {
       poster = "https://via.placeholder.com/185x260";
     }
     let releaseDate = moment(data.results[index].first_air_date).format("LL");
-    $("body").append(`<div class="row search-result">
+    $(".js-search-results").append(`<div class="row search-result">
       <div class="col-3">
           <img src="${poster}">
       </div>

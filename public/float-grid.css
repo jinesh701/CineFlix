@@ -153,6 +153,13 @@
     width: 100%;
   }
 
+  .result-container-watched {
+    margin-top: 50px;
+    padding-top: 50px;
+    text-align: center;
+    width: 100%;
+  }
+
   .title-release-container {
     margin-left: 50px;
   }

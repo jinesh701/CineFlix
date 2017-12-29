@@ -233,6 +233,11 @@
     padding-top: 30px;
   }
 
+  .result-container-watched {
+    margin-top: 30px;
+    padding-bottom: 10px;
+  }
+
   .landing-movies,
   .landing-tv {
     font-size: 50px;
@@ -286,5 +291,18 @@
     padding-top: 50px;
     font-size: 50px;
     text-align: center;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .card-1 {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   }
 }

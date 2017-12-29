@@ -9,8 +9,11 @@ function movieNowPlayingDisplay(data) {
     let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
+    let movieId = data.results[i].id;
     $("#movies-now-playing").append(`<div class="col-2">
+          <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${title} poster">
+          </a>
           <br>
           <b class="landing-title">${title}</b>
           <span class="landing-release-date">${releaseDate}</span>
@@ -18,7 +21,9 @@ function movieNowPlayingDisplay(data) {
           `);
 
     $("#mobile-now-playing").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
+      `<a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
+      </a>
       <b class="mobile-title">${title}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -36,15 +41,20 @@ function movieUpcomingDisplay(data) {
     let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
+    let movieId = data.results[i].id;
     $("#movies-upcoming").append(`<div class="col-2">
+          <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${title} poster">
+          </a>
           <br>
           <b class="landing-title">${title}</b>
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-upcoming").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
+      `<a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
+      </a>
       <b class="mobile-title">${title}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -62,15 +72,20 @@ function tvPopularDisplay(data) {
     let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
+    let tvId = data.results[i].id;
     $("#tv-popular").append(`<div class="col-2">
+          <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${name} poster">
+          </a>
           <br>
           <b class="landing-title">${name}</b>
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
     $("#mobile-popular").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
+      `<a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
+      </a>
       <b class="mobile-title">${name}</b>
       <span class="landing-release-date">${releaseDate}</span>`
     );
@@ -88,18 +103,22 @@ function tvTopRatedDisplay(data) {
     let mobilePoster = `https://image.tmdb.org/t/p/w500/${
       data.results[i].backdrop_path
     }`;
+    let tvId = data.results[i].id;
     $("#tv-top-rated").append(`<div class="col-2">
+          <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${name} poster">
+          </a>
           <br>
           <b class="landing-title">${name}</b>
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
-    $("#mobile-top-rated").append(
-      `<img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
-      <b class="mobile-title">${name}</b>
-      <span class="landing-release-date">${releaseDate}</span>`
-    );
+    $("#mobile-top-rated")
+      .append(`<a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en">
+    <img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
+    </a>
+    <b class="mobile-title">${name}</b>
+    <span class="landing-release-date">${releaseDate}</span>`);
   }
 }
 

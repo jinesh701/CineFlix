@@ -118,6 +118,12 @@ body {
   text-align: center;
 }
 
+.result-container {
+  margin-top: 50px;
+  padding-top: 50px;
+  text-align: center;
+}
+
 .result-poster {
   padding-top: 30px;
 }

@@ -48,8 +48,8 @@
     <div class="col-3 center-block header-fonts">Name</div>
     <div class="col-3 center-block header-fonts">Release Date</div>
 </div>
+{{#each media}}
 <div class="row">
-    {{#each media}}
     <div class="result-container card card-1 col-12" id={{id}}>
         <div class="col-3 watched-date">{{formatDate updatedAt}}</div>
         <div class="col-3 center-block">

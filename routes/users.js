@@ -1,7 +1,6 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
@@ -32,31 +31,21 @@ router.post("/register", (req, res) => {
       errors: errors
     });
   } else {
-    let newUser = new User({
+    const newUser = new User({
       username: username,
       password: password
     });
-    newUser.username =
-      newUser.username.substr(0, 1).toUpperCase() + newUser.username.substr(1);
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(newUser.password, salt, function(err, hash) {
-        if (err) {
-          console.log(err);
-        }
-        newUser.password = hash;
-        newUser.save(function(err) {
-          if (err) {
-            req.flash(
-              "error_msg",
-              `Username already exists. Please try another.`
-            );
-            res.redirect("/users/register");
-          } else {
-            req.flash("success", "You are now registered and can log in");
-            res.redirect("/users/login");
-          }
-        });
-      });
+
+    newUser.username = username.substr(0, 1).toUpperCase() + username.substr(1);
+
+    User.createUser(newUser, function(err, user) {
+      if (err) {
+        req.flash("error_msg", `Username already exists. Please try another.`);
+        res.redirect("/users/register");
+      } else {
+        req.flash("success", "You are now registered and can log in");
+        res.redirect("/users/login");
+      }
     });
   }
 });
@@ -64,18 +53,16 @@ router.post("/register", (req, res) => {
 //Passport Local Strategy
 passport.use(
   new LocalStrategy(function(username, password, done) {
-    //Match user
     username = username.substr(0, 1).toUpperCase() + username.substr(1);
     let query = { username: username };
-    User.findOne(query, (err, user) => {
+    User.getUserByUsername(username, (err, user) => {
       if (err) throw err;
       if (!user) {
         return done(null, false, {
           message: `The username ${username} was not found.`
         });
       }
-      //Match Password
-      bcrypt.compare(password, user.password, (err, isMatch) => {
+      User.comparePassword(password, user.password, (err, isMatch) => {
         if (err) throw err;
         if (isMatch) {
           return done(null, user);
@@ -94,7 +81,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
+  User.getUserById(id, function(err, user) {
     done(err, user);
   });
 });

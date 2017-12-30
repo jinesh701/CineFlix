@@ -12,7 +12,8 @@ router.get("/search", ensureAuthenticated, (req, res) => {
 
 //Watchlist page
 router.get("/watchlist", ensureAuthenticated, (req, res) => {
-  Media.find({ watched: false })
+  Media.find({ _creator: req.user.id, watched: false })
+    .sort({ createdAt: "desc" })
     .then(media => {
       res.render("watchlist", { media, title: "Watchlist" });
     })
@@ -24,7 +25,8 @@ router.get("/watchlist", ensureAuthenticated, (req, res) => {
 
 //Watched page
 router.get("/watched", ensureAuthenticated, (req, res) => {
-  Media.find({ watched: true })
+  Media.find({ _creator: req.user.id, watched: true })
+    .sort({ createdAt: "desc" })
     .then(media => {
       res.render("watched", { media, title: "Watched" });
     })
@@ -49,7 +51,8 @@ router.post("/watchlist", jsonParser, (req, res) => {
     poster: req.body.poster,
     overview: req.body.overview,
     title: req.body.title,
-    release_date: req.body.release_date
+    release_date: req.body.release_date,
+    _creator: { _id: req.user.id }
   })
     .then(() => {
       req.flash(

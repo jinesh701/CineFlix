@@ -5,6 +5,43 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: "Vollkorn", serif;
+}
+
+header {
+  font-family: "Lato", sans-serif;
+}
+
+nav {
+  width: 100%;
+}
+
+ul {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+ul li {
+  list-style: none;
+  color: white;
+  display: inline-block;
+  text-transform: uppercase;
+  color: grey;
+  border-bottom: 3px solid transparent;
+  padding: 20px;
+}
+
+.toggle {
+  width: 100%;
+  padding: 10px 20px;
+  color: white;
+  text-align: right;
+  box-sizing: border-box;
+  font-size: 30px;
+  display: none;
+  background-color: black;
 }
 
 .landing-info {
@@ -93,6 +130,36 @@ body {
 
 .search-form {
   text-align: center;
+}
+
+.js-search-form input[type="text"] {
+  padding: 10px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+.js-search-form button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.js-search-form button:hover {
+  background: #0b7dda;
+}
+
+.js-search-form::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .js-user-input {

@@ -99,15 +99,14 @@
 @media only screen and (min-width: 641px) {
   header {
     background-color: black;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
   }
 
   .page-title {
     color: white;
+    font-size: 40px;
     margin-top: 50px;
-  }
-
-  .page-links {
-    list-style-type: none;
+    height: 10px;
   }
 
   a {
@@ -117,19 +116,11 @@
 
   a:hover {
     color: white;
-    border-bottom: 3px solid #18ffff;
-  }
-
-  .li-page-link {
-    display: inline;
-    text-transform: uppercase;
-    color: grey;
-    padding: 15px;
-    border-bottom: 3px solid transparent;
+    border-bottom: 3px solid red;
   }
 
   .search-form-container {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .card {
@@ -171,18 +162,20 @@
   .watched-date {
     text-align: center;
     margin-top: 100px;
+    font-size: 18px;
   }
 
   .watched-title {
     margin-top: 100px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     padding-left: 50px;
   }
 
   .watched-release-date {
     margin-top: 100px;
     text-align: center;
+    font-size: 18px;
   }
 
   .mobile-landing {
@@ -192,24 +185,40 @@
 
 /*Adjusted styles for mobile devices*/
 @media only screen and (max-width: 640px) {
-  .nav-bar {
-    text-align: center;
-  }
-
   .page-title {
-    text-align: center;
-    font-size: 60px;
+    display: none;
   }
 
-  .page-links {
-    list-style-type: none;
+  .mobile-header {
     float: left;
-    margin-left: 65px;
   }
 
-  .li-page-link {
-    display: inline;
-    padding-left: 10px;
+  .toggle {
+    display: block;
+  }
+
+  ul {
+    width: 100%;
+    display: none;
+  }
+
+  ul li {
+    display: block;
+    text-align: center;
+    background-color: black;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .active {
+    display: block;
+  }
+
+  .search-form-container {
+    margin-top: 30px;
   }
 
   .watched-div {

@@ -1,10 +1,10 @@
 {{#if errors}}
 <div class="row">
-    <ul>
-        {{#each errors}}
-        <p class="errors">{{msg}}</p>
-        {{/each}}
-    </ul>
+    {{#each errors}}
+    <div class="row">
+        <div class="col-12 errors">{{msg}}</div>
+    </div>
+    {{/each}}
 </div>
 {{/if}} {{#if error_msg}}
 <div class="row">
@@ -12,28 +12,21 @@
 </div>
 {{/if}}
 
-<div class="row registration-div">
-    <h1 class="register">Register</h1>
-
+<div class="login-block">
+    <h1>Register</h1>
     <form method="POST" action="/users/register" aria-label="registration" aria-live="assertive">
-        <label for="username" class="register-labels col-12">Username</label>
-        <div class="col-12 center-block">
-            <input type="text" name="username" id="username" class="register-width" placeholder="Username">
-        </div>
-        <label for="password" class="register-labels col-12">Password</label>
-        <div class="col-12 center-block">
-            <input type="password" name="password" id="password" class="register-width" placeholder="Password">
-        </div>
-        <label for="password2" class="register-labels col-12">Confirm Password</label>
-        <div class="col-12 center-block">
-            <input type="password" name="password2" id="password2" class="register-width" placeholder="Confirm password">
-        </div>
-        <div class="row">
-            <div class="col-12 register-submit">
-                <input type=submit>
-            </div>
-        </div>
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username" id="username">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" id="password">
+        <label for="password2">Confirm Password</label>
+        <input type="password" name="password2" id="password2" placeholder="Confirm password">
+        <button>Submit</button>
     </form>
 </div>
+
+<p class="center-block">Already have an account?
+    <a href="/users/login">Log in</a>
+</p>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

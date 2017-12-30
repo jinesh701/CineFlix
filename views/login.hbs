@@ -12,34 +12,29 @@
 </div>
 {{/if}}
 
-
-<div class="row login-div">
-    <h1 class="login">Login</h1>
-
+<div class="login-block">
+    <h1>Login</h1>
     <form method="POST" action="/users/login" aria-label="login" aria-live="assertive">
-        <label for="username" class="register-labels col-12">Username</label>
-        <div class="col-12 center-block">
-            <input type="text" name="username" id="username" class="register-width" placeholder="Username">
-        </div>
-        <label for="password" class="register-labels col-12">Password</label>
-        <div class="col-12 center-block">
-            <input type="password" name="password" id="password" class="register-width" placeholder="Password">
-        </div>
-        <div class="row">
-            <div class="col-12 register-submit">
-                <input type=submit>
-            </div>
-        </div>
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username" id="username">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" id="password">
+        <button>Submit</button>
     </form>
-    <div class="demo-user">
-        <div class="col-12 center-block">
-            <h2>Demo User</h2>
-        </div>
-        <div class="col-12 center-block">
-            <b>Username:</b> movies</div>
-        <div class="col-12 center-block">
-            <b>Password:</b> test</div>
+</div>
+
+<p class="center-block">Not registered?
+    <a href="/users/register">Register</a>
+</p>
+
+<div class="row demo-user">
+    <div class="col-12 center-block">
+        <h2>Demo User</h2>
     </div>
+    <div class="col-12 center-block">
+        <b>Username:</b> movies</div>
+    <div class="col-12 center-block">
+        <b>Password:</b> test</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

@@ -310,11 +310,11 @@ function markItemAsWatched() {
 function removeItemFromWatched() {
   $("body").on("click", "#deleteItemFromWatched", function() {
     let title = $(this)
-      .closest(".result-container")
+      .closest(".result-container-watched")
       .find(".watched-title")
       .text();
     let id = $(this)
-      .closest(".result-container")
+      .closest(".result-container-watched")
       .attr("id");
     let data_test = {
       id: id,

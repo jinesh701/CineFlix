@@ -9,7 +9,7 @@ const User = require("../models/user");
 
 //Register form
 router.get("/register", (req, res) => {
-  res.render("register", { title: "Register" });
+  res.render("register", { title: "Register", Register: 'class="current"' });
 });
 
 //Register User
@@ -88,7 +88,7 @@ passport.deserializeUser(function(id, done) {
 
 //Login
 router.get("/login", (req, res) => {
-  res.render("login", { title: "Login" });
+  res.render("login", { title: "Login", Login: 'class="current"' });
 });
 
 //Login process

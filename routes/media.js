@@ -7,7 +7,7 @@ const jsonParser = bodyParser.json();
 
 //Search page
 router.get("/search", ensureAuthenticated, (req, res) => {
-  res.render("search", { title: "Search" });
+  res.render("search", { title: "Search", Search: 'class="current"' });
 });
 
 //Watchlist page
@@ -15,7 +15,11 @@ router.get("/watchlist", ensureAuthenticated, (req, res) => {
   Media.find({ _creator: req.user.id, watched: false })
     .sort({ createdAt: "desc" })
     .then(media => {
-      res.render("watchlist", { media, title: "Watchlist" });
+      res.render("watchlist", {
+        media,
+        title: "Watchlist",
+        Watchlist: 'class="current"'
+      });
     })
     .catch(err => {
       console.error(err);
@@ -28,7 +32,11 @@ router.get("/watched", ensureAuthenticated, (req, res) => {
   Media.find({ _creator: req.user.id, watched: true })
     .sort({ createdAt: "desc" })
     .then(media => {
-      res.render("watched", { media, title: "Watched" });
+      res.render("watched", {
+        media,
+        title: "Watched",
+        Watched: 'class="current"'
+      });
     })
     .catch(err => {
       console.error(err);

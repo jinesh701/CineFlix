@@ -4,12 +4,12 @@ const router = express.Router();
 
 //Index page
 router.get("/", (req, res) => {
-  res.render("index", { title: "CineFlix" });
+  res.render("index", { title: "CineFlix", Home: 'class="current"' });
 });
 
 //Profile page
 router.get("/profile", ensureAuthenticated, (req, res) => {
-  res.render("profile", { title: "Cineflix" });
+  res.render("profile", { title: "Cineflix", Profile: 'class="current"' });
 });
 
 function ensureAuthenticated(req, res, next) {

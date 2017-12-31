@@ -207,7 +207,7 @@ ul li {
   float: left;
   width: 20%;
   padding: 10px;
-  background: #2196f3;
+  background: #ff656c;
   color: white;
   font-size: 17px;
   border: none;
@@ -215,7 +215,7 @@ ul li {
 }
 
 .js-search-form button:hover {
-  background: #0b7dda;
+  background: #e0575e;
 }
 
 .js-search-form::after {

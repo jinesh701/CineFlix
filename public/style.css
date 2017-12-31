@@ -61,7 +61,8 @@ body {
   background-size: 16px 80px;
 }
 
-.login-block input#password:focus {
+.login-block input#password:focus,
+.login-block input#password2:focus {
   background: #fff url("http://i.imgur.com/Qf83FTt.png") 20px bottom no-repeat;
   background-size: 16px 80px;
 }

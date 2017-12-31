@@ -17,12 +17,12 @@ Users can:
 
 https://murmuring-mountain-83480.herokuapp.com/
 
-![home-page](https://user-images.githubusercontent.com/25669046/34453996-0701ab82-ed2f-11e7-829b-4feb4a51c177.png)
-![register](https://user-images.githubusercontent.com/25669046/34453999-0f85191a-ed2f-11e7-8f11-6668abd4dfff.png)
-![login](https://user-images.githubusercontent.com/25669046/34453998-0d19d47c-ed2f-11e7-8298-34d68daa556a.png)
-![search](https://user-images.githubusercontent.com/25669046/34454000-10c536f2-ed2f-11e7-80bf-cf66782019b1.png)
-![watchlist](https://user-images.githubusercontent.com/25669046/34454002-13a8c4ce-ed2f-11e7-8331-44704c00299b.png)
-![watched](https://user-images.githubusercontent.com/25669046/34454084-ea45ff14-ed30-11e7-9cf3-a78778d4e0fd.png)
+![home-page](https://user-images.githubusercontent.com/25669046/34459777-e87d7936-edc7-11e7-83f6-a9a070985464.png)
+![register](https://user-images.githubusercontent.com/25669046/34459779-f1de2f84-edc7-11e7-9ed9-2aca7d25d72f.png)
+![login](https://user-images.githubusercontent.com/25669046/34459780-f382c746-edc7-11e7-9c86-bf798f6db1e9.png)
+![search](https://user-images.githubusercontent.com/25669046/34459781-f57a8d22-edc7-11e7-8dfe-b0600e0871a5.png)
+![watchlist](https://user-images.githubusercontent.com/25669046/34459782-f7877576-edc7-11e7-9a40-813ab5e68f93.png)
+![watched](https://user-images.githubusercontent.com/25669046/34459784-f90bfdb8-edc7-11e7-904c-195826ff7fb6.png)
 ![mobile](https://user-images.githubusercontent.com/25669046/34454130-ece232b4-ed31-11e7-9b3f-40bd95cb82d5.PNG)
 
 ## Technology used:

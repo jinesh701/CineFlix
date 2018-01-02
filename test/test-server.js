@@ -68,7 +68,7 @@ describe("CineFlix app", function() {
           .send(newUser)
           .then(function(res) {
             console.log(res.request._data);
-            res.should.have.status(201);
+            res.should.have.status(200);
             return User.findOne({ username: newUser.username });
           })
           .then(function(user) {

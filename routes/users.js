@@ -44,7 +44,7 @@ router.post("/register", (req, res) => {
         res.redirect("/users/register");
       } else {
         req.flash("success", "You are now registered and can log in");
-        res.redirect(201, "/users/login");
+        res.redirect("/users/login");
       }
     });
   }

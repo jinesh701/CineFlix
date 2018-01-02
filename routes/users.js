@@ -44,7 +44,7 @@ router.post("/register", (req, res) => {
         res.redirect("/users/register");
       } else {
         req.flash("success", "You are now registered and can log in");
-        res.redirect("/users/login");
+        res.redirect(201, "/users/login");
       }
     });
   }
@@ -54,7 +54,6 @@ router.post("/register", (req, res) => {
 passport.use(
   new LocalStrategy(function(username, password, done) {
     username = username.substr(0, 1).toUpperCase() + username.substr(1);
-    let query = { username: username };
     User.getUserByUsername(username, (err, user) => {
       if (err) throw err;
       if (!user) {

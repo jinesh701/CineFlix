@@ -6,7 +6,6 @@ mongoose.Promise = global.Promise;
 const movieandTvSchema = mongoose.Schema(
   {
     poster: String,
-    overview: String,
     title: String,
     release_date: String,
     watched: { type: Boolean, required: true, default: false },

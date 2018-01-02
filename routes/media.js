@@ -57,7 +57,6 @@ function ensureAuthenticated(req, res, next) {
 router.post("/watchlist", jsonParser, (req, res) => {
   const newMedia = Media.create({
     poster: req.body.poster,
-    overview: req.body.overview,
     title: req.body.title,
     release_date: req.body.release_date,
     _creator: { _id: req.user.id }

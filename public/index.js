@@ -1,3 +1,10 @@
+//Redirect user to register
+function redirectToRegister() {
+  $(".landing-signup").on("click", function() {
+    location.href = "/users/register";
+  });
+}
+
 //Display now playing movies
 function movieNowPlayingDisplay(data) {
   for (let i = 0; i <= 5; i++) {
@@ -10,13 +17,27 @@ function movieNowPlayingDisplay(data) {
       data.results[i].backdrop_path
     }`;
     let movieId = data.results[i].id;
-    $("#movies-now-playing").append(`<div class="col-2">
+    $("#movies-now-playing").append(`<div class="col-2 landing-media">
           <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${title} poster">
           </a>
           <br>
           <b class="landing-title">${title}</b>
           <span class="landing-release-date">${releaseDate}</span>
+      </div>
+          </div>
+          `);
+
+    //Show add to watchlist if user logged in
+    $("#movies-now-playing-logged-in").append(`<div class="col-2 landing-media">
+          <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en" target="_blank">
+          <img class="landing-img" src="${poster}" alt="${title} poster">
+          </a>
+          <button type="button" class="landing-watchlist-btn col-12">Add to watchlist</button>
+          <br>
+          <b class="landing-title">${title}</b>
+          <span class="landing-release-date">${releaseDate}</span>
+      </div>
           </div>
           `);
 
@@ -26,6 +47,22 @@ function movieNowPlayingDisplay(data) {
       </a>
       <b class="mobile-title">${title}</b>
       <span class="landing-release-date">${releaseDate}</span>`
+    );
+
+    //Show add to watchlist if user logged in
+    $("#mobile-now-playing-logged-in").append(
+      `<div class="mobile-landing-media">
+      <img class="hide" src="${poster}">
+      <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
+      </a>
+      <b class="mobile-title">${title}</b>
+      <span class="landing-release-date">${releaseDate}</span>
+      <br>
+      <div class="col-2 mobile-watchlist-btn-container">
+      <button type="button" class="mobile-landing-watchlist-btn">Add to watchlist</button>
+      </div>
+      </div>`
     );
   }
 }
@@ -42,10 +79,21 @@ function movieUpcomingDisplay(data) {
       data.results[i].backdrop_path
     }`;
     let movieId = data.results[i].id;
-    $("#movies-upcoming").append(`<div class="col-2">
+    $("#movies-upcoming").append(`<div class="col-2 landing-media">
           <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${title} poster">
           </a>
+          <br>
+          <b class="landing-title">${title}</b>
+          <span class="landing-release-date">${releaseDate}</span>
+      </div>`);
+
+    //Show add to watchlist if user logged in
+    $("#movies-upcoming-logged-in").append(`<div class="col-2 landing-media">
+          <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en" target="_blank">
+          <img class="landing-img" src="${poster}" alt="${title} poster">
+          </a>
+          <button type="button" class="landing-watchlist-btn col-12">Add to watchlist</button>
           <br>
           <b class="landing-title">${title}</b>
           <span class="landing-release-date">${releaseDate}</span>
@@ -57,6 +105,22 @@ function movieUpcomingDisplay(data) {
       </a>
       <b class="mobile-title">${title}</b>
       <span class="landing-release-date">${releaseDate}</span>`
+    );
+
+    //Show add to watchlist if user logged in
+    $("#mobile-upcoming-logged-in").append(
+      `<div class="mobile-landing-media">
+      <img class="hide" src="${poster}">
+      <a href="https://www.themoviedb.org/movie/${movieId}-${title}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${title} poster">
+      </a>
+      <b class="mobile-title">${title}</b>
+      <span class="landing-release-date">${releaseDate}</span>
+      <br>
+      <div class="col-2 mobile-watchlist-btn-container">
+      <button type="button" class="mobile-landing-watchlist-btn">Add to watchlist</button>
+      </div>
+      </div>`
     );
   }
 }
@@ -73,7 +137,7 @@ function tvPopularDisplay(data) {
       data.results[i].backdrop_path
     }`;
     let tvId = data.results[i].id;
-    $("#tv-popular").append(`<div class="col-2">
+    $("#tv-popular").append(`<div class="col-2 landing-media">
           <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${name} poster">
           </a>
@@ -82,12 +146,39 @@ function tvPopularDisplay(data) {
           <span class="landing-release-date">${releaseDate}</span>
       </div>`);
 
+    //Show add to watchlist if user logged in
+    $("#tv-popular-logged-in").append(`<div class="col-2 landing-media">
+      <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en" target="_blank">
+      <img class="landing-img" src="${poster}" alt="${name} poster">
+      </a>
+      <button type="button" class="landing-watchlist-btn col-12">Add to watchlist</button>
+      <br>
+      <b class="landing-title">${name}</b>
+      <span class="landing-release-date">${releaseDate}</span>
+  </div>`);
+
     $("#mobile-popular").append(
       `<a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en">
       <img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
       </a>
       <b class="mobile-title">${name}</b>
       <span class="landing-release-date">${releaseDate}</span>`
+    );
+
+    //Show add to watchlist if user logged in
+    $("#mobile-popular-logged-in").append(
+      `<div class="mobile-landing-media">
+      <img class="hide" src="${poster}">
+      <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
+      </a>
+      <b class="mobile-title">${name}</b>
+      <span class="landing-release-date">${releaseDate}</span>
+      <br>
+      <div class="col-2 mobile-watchlist-btn-container">
+      <button type="button" class="mobile-landing-watchlist-btn">Add to watchlist</button>
+      </div>
+      </div>`
     );
   }
 }
@@ -104,10 +195,21 @@ function tvTopRatedDisplay(data) {
       data.results[i].backdrop_path
     }`;
     let tvId = data.results[i].id;
-    $("#tv-top-rated").append(`<div class="col-2">
+    $("#tv-top-rated").append(`<div class="col-2 landing-media">
           <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en" target="_blank">
           <img class="landing-img" src="${poster}" alt="${name} poster">
           </a>
+          <br>
+          <b class="landing-title">${name}</b>
+          <span class="landing-release-date">${releaseDate}</span>
+      </div>`);
+
+    //Show add to watchlist if user logged in
+    $("#tv-top-rated-logged-in").append(`<div class="col-2 landing-media">
+          <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en" target="_blank">
+          <img class="landing-img" src="${poster}" alt="${name} poster">
+          </a>
+          <button type="button" class="landing-watchlist-btn col-12">Add to watchlist</button>
           <br>
           <b class="landing-title">${name}</b>
           <span class="landing-release-date">${releaseDate}</span>
@@ -119,6 +221,20 @@ function tvTopRatedDisplay(data) {
     </a>
     <b class="mobile-title">${name}</b>
     <span class="landing-release-date">${releaseDate}</span>`);
+
+    //Show add to watchlist if user logged in
+    $("#mobile-top-rated-logged-in").append(`<div class="mobile-landing-media">
+      <img class="hide" src="${poster}">
+      <a href="https://www.themoviedb.org/tv/${tvId}-${name}?language=en">
+      <img class="mobile-landing-img" src="${mobilePoster}" alt="${name} poster">
+      </a>
+      <b class="mobile-title">${name}</b>
+      <span class="landing-release-date">${releaseDate}</span>
+      <br>
+      <div class="col-2 mobile-watchlist-btn-container">
+      <button type="button" class="mobile-landing-watchlist-btn">Add to watchlist</button>
+      </div>
+      </div>`);
   }
 }
 
@@ -221,6 +337,70 @@ function handleSubmit() {
   });
 }
 
+//Add landing page movies/tv shows to database
+function addItemFromLanding() {
+  $("body").on("click", ".landing-watchlist-btn", function(event) {
+    event.preventDefault();
+    let poster = $(this)
+      .closest(".landing-media")
+      .find("img")
+      .attr("src");
+    let title = $(this)
+      .closest(".landing-media")
+      .find(".landing-title")
+      .text();
+    let release_date = $(this)
+      .closest(".landing-media")
+      .find(".landing-release-date")
+      .text();
+    let newMedia = {
+      poster: poster,
+      title: title,
+      release_date: release_date
+    };
+    $.ajax({
+      url: "/media/watchlist",
+      data: newMedia,
+      type: "POST",
+      dataType: "json"
+    }).done(function(data) {
+      window.location.href = data.redirect;
+    });
+  });
+}
+
+//Add landing page movies/tv shows to database from mobile
+function addItemFromLandingMobile() {
+  $("body").on("click", ".mobile-landing-watchlist-btn", function(event) {
+    event.preventDefault();
+    let poster = $(this)
+      .closest(".mobile-landing-media")
+      .find("img")
+      .attr("src");
+    let title = $(this)
+      .closest(".mobile-landing-media")
+      .find(".mobile-title")
+      .text();
+    let release_date = $(this)
+      .closest(".mobile-landing-media")
+      .find(".landing-release-date")
+      .text();
+    let newMedia = {
+      poster: poster,
+      title: title,
+      release_date: release_date
+    };
+    $.ajax({
+      url: "/media/watchlist",
+      data: newMedia,
+      type: "POST",
+      dataType: "json"
+    }).done(function(data) {
+      window.location.href = data.redirect;
+    });
+  });
+}
+
 //Add tv show/movie to database
 function addItemToDb() {
   $("body").on("click", ".watchlist-btn", function(event) {
@@ -229,10 +409,6 @@ function addItemToDb() {
       .closest(".search-result")
       .find("img")
       .attr("src");
-    let overview = $(this)
-      .closest(".search-result")
-      .find(".result-description")
-      .text();
     let title = $(this)
       .closest(".search-result")
       .find(".result-name")
@@ -243,7 +419,6 @@ function addItemToDb() {
       .text();
     let newMedia = {
       poster: poster,
-      overview: overview,
       title: title,
       release_date: release_date
     };
@@ -331,8 +506,11 @@ function removeItemFromWatched() {
 }
 
 $(document).ready(() => {
+  redirectToRegister();
   getLandingMovies(movieNowPlayingDisplay, movieUpcomingDisplay);
   getLandingTv(tvPopularDisplay, tvTopRatedDisplay);
+  addItemFromLanding();
+  addItemFromLandingMobile();
   handleSubmit();
   addItemToDb();
   removeItemFromDb();

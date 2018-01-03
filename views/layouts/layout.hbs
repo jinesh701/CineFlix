@@ -19,7 +19,15 @@
     <header role="banner">
         <div class="row header-container">
             <div class="col-3">
-                <h1 class="page-title">CineFlix</h1>
+                {{#if user}}
+                <a href="/profile" class="home-page">
+                    <h1 class="page-title">CineFlix</h1>
+                </a>
+                {{else}}
+                <a href="/" class="home-page">
+                    <h1 class="page-title">CineFlix</h1>
+                </a>
+                {{/if}}
             </div>
             <nav>
                 <div class="toggle">
@@ -28,35 +36,37 @@
                     </span>
                     <i class="fa fa-bars menu" aria-hidden="true"></i>
                 </div>
-                <ul class="nav-items">
-                    {{#if user}}
-                    <li>
-                        <a href="/profile" {{{Profile}}}>Home</a>
-                    </li>
-                    <li>
-                        <a href="/media/watchlist" {{{Watchlist}}}>Watchlist</a>
-                    </li>
-                    <li>
-                        <a href="/media/watched" {{{Watched}}}>Watched</a>
-                    </li>
-                    <li>
-                        <a href="/media/search" {{{Search}}}>Search</a>
-                    </li>
-                    <li>
-                        <a href="/users/logout" id="log-out">Logout</a>
-                    </li>
-                    {{else}}
-                    <li>
-                        <a href="/" {{{Home}}}>Home</a>
-                    </li>
-                    <li>
-                        <a href="/users/register" {{{Register}}}>Register</a>
-                    </li>
-                    <li>
-                        <a href="/users/login" {{{Login}}}>Login</a>
-                    </li>
-                    {{/if}}
-                </ul>
+                <div class="col-9">
+                    <ul class="nav-items">
+                        {{#if user}}
+                        <li>
+                            <a href="/profile" {{{Profile}}}>Home</a>
+                        </li>
+                        <li>
+                            <a href="/media/watchlist" {{{Watchlist}}}>Watchlist</a>
+                        </li>
+                        <li>
+                            <a href="/media/watched" {{{Watched}}}>Watched</a>
+                        </li>
+                        <li>
+                            <a href="/media/search" {{{Search}}}>Search</a>
+                        </li>
+                        <li>
+                            <a href="/users/logout" id="log-out">Logout</a>
+                        </li>
+                        {{else}}
+                        <li>
+                            <a href="/" {{{Home}}}>Home</a>
+                        </li>
+                        <li>
+                            <a href="/users/register" {{{Register}}}>Register</a>
+                        </li>
+                        <li>
+                            <a href="/users/login" {{{Login}}}>Login</a>
+                        </li>
+                        {{/if}}
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>

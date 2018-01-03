@@ -115,9 +115,10 @@
   .page-title {
     color: white;
     font-size: 40px;
-    margin-top: 6px;
+    margin-top: 10px;
     text-align: left;
     padding-top: 5px;
+    vertical-align: middle;
   }
 
   ul {
@@ -128,8 +129,7 @@
   }
 
   .nav-items {
-    margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .nav-items a {
@@ -168,7 +168,7 @@
   }
 
   .result-container-watched {
-    margin-top: 50px;
+    margin-top: 20px;
     padding-top: 50px;
     text-align: center;
     width: 100%;

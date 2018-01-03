@@ -120,6 +120,24 @@ ul li {
   padding: 20px;
 }
 
+.landing-signup {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  font-size: 1.25rem;
+  padding: 0.8rem 2rem;
+  font-weight: 500;
+}
+
+.landing-signup:hover {
+  background-color: black;
+  color: white;
+}
+
 .toggle {
   width: 100%;
   padding: 10px 20px;
@@ -249,6 +267,8 @@ ul li {
 
 .result-poster {
   padding-top: 30px;
+  width: 185px;
+  height: 302px;
 }
 
 .js-no-tv-results {
@@ -263,7 +283,8 @@ ul li {
   margin-bottom: 20px;
 }
 
-.watchlist-btn {
+.watchlist-btn,
+.mobile-landing-watchlist-btn {
   background-color: #28a745;
   border-color: #28a745;
   color: #fff;
@@ -272,6 +293,30 @@ ul li {
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+}
+
+.landing-watchlist-btn {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
+  line-height: 1.5;
+  width: 150px;
+}
+
+.watchlist-btn:hover,
+.landing-watchlist-btn:hover,
+.mobile-landing-watchlist-btn:hover,
+#watchedItem:hover {
+  background-color: #24993f;
+}
+
+#deleteItem:hover,
+#deleteItemFromWatched:hover {
+  background-color: #c02d3c;
 }
 
 #watchedItem {
@@ -299,6 +344,10 @@ ul li {
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+}
+
+.mobile-watchlist-btn-container {
+  text-align: center;
 }
 
 .watched-date {

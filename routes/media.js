@@ -30,7 +30,7 @@ router.get("/watchlist", ensureAuthenticated, (req, res) => {
 //Watched page
 router.get("/watched", ensureAuthenticated, (req, res) => {
   Media.find({ _creator: req.user.id, watched: true })
-    .sort({ createdAt: "desc" })
+    .sort({ updatedAt: "desc" })
     .then(media => {
       res.render("watched", {
         media,

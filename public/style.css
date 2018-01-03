@@ -293,6 +293,7 @@ ul li {
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .landing-watchlist-btn {
@@ -305,6 +306,7 @@ ul li {
   border-radius: 0.2rem;
   line-height: 1.5;
   width: 150px;
+  cursor: pointer;
 }
 
 .watchlist-btn:hover,
@@ -328,6 +330,7 @@ ul li {
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .delete-btn-container {
@@ -344,6 +347,7 @@ ul li {
   border: 1px solid transparent;
   border-radius: 0.2rem;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .mobile-watchlist-btn-container {
